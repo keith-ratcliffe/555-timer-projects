@@ -5,7 +5,7 @@ extremely popular 555 timer "chip" or "integrated circuit"
 
 ### History of the 555 Timer IC
 
-The 555 timer chip was invented by Swiss engineer, Hans Camenzind, in 1971. He designed this iconic
+The 555 timer chip was invented by Swiss engineer Hans Camenzind in 1971. He designed this iconic
 integrated circuit while working as an independent consultant for Signetics Corporation, an important
 electronics manufacturer established in 1961 in Silicon Valley (acquired later by Philips in 1975).
 The chip was released in 1972 and became one of the most successful and widely used ICs in history. 
