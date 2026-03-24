@@ -1,2 +1,2 @@
-# 555-timer-projects
-Projects for learning 555 timer circuit
+# 555 Timer Projects
+Simple projects for learning about electronics, centered around the popular 555 timer
