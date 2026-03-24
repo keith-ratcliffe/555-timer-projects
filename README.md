@@ -10,4 +10,4 @@ extremely popular 555 timer integrated circuit or "chip"
 [images/555-pinout.png](images/555-pinout.png)
 
 
-[images/quare-wave-generator.jpg](images/quare-wave-generator.jpg)
+[images/square-wave-generator.jpg](images/square-wave-generator.jpg)
