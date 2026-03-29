@@ -20,9 +20,9 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 ## Steps
 
 1. Orient your breadboard as shown with row 1 at the top
-   ![Orient Breadboard](../images/01_breadboard.png)
+   ![Orient Breadboard](../images/03/01_breadboard.png)
 
 2. Carefully insert your 555 timer chip into the breadboard as shown, making sure to
    orient the 555's pin 1 through 4 on the left, "half moon" notch pointing upward
-   ![555 Placement](../images/02_add_555.png
+   ![555 Placement](../images/03/02_add_555.png
 )
