@@ -26,7 +26,9 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
    From your point of view, make sure that the breadboards's outer power (+) and ground (-) rails
    appear vertically, and from left to right in this order:
 
+   ```
    | Red (+) | Blue (-) .... || .... Red (+) | Blue (-) |
+   ```
 
    ![Orient Breadboard](../images/03/01_breadboard.png)
 
