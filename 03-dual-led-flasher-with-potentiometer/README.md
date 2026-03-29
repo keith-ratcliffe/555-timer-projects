@@ -25,6 +25,8 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 
    ![Orient Breadboard](../images/03/01_breadboard.png)
 
+---
+
 ### Step 2
 
    Carefully insert your 555 timer chip into the breadboard. The row that you choose
@@ -33,11 +35,15 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 
    ![555 Placement](../images/03/02_add_555.png)
 
+---
+
 ### Step 3
 
    Use a small jumper wire to connect VCC (pin 8) to the positive (+) rail, or red "power" rail
 
    ![Connect VCC to Power Rail](../images/03/03_add_vcc_jumper.png)
+
+---
 
 ### Step 4
 
@@ -45,11 +51,15 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 
    ![Connect GND to Ground Rail](../images/03/04_add_gnd_jumper.png)
 
+---
+
 ### Step 5
 
    Use a slightly longer jumper wire to connect the 555's TRIGGER (pin 2) to THRESHOLD (pin 6)
 
    ![Connect 2 to 6](../images/03/05_add_2_to_6_jumper.png)
+
+---
 
 ### Step 6
 
@@ -57,6 +67,6 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 
    ![Connect 4 to 8](../images/03/06_add_4_to_8_jumper.png)
 
-
+---
 
 
