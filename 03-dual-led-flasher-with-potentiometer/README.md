@@ -1,6 +1,6 @@
 # Dual LED Flasher with Rotary Potentiometer
 
-This project demonstrates how to build a 555 timer circuit with dual flashing LEDs and utilizing a potentiomenter for modifying LED flash frequency
+This project demonstrates how to build a 555 timer circuit with dual flashing LEDs and utilizing a rotary potentiomenter for modifying LED flash frequency
 
 ## Parts List
 
@@ -17,4 +17,12 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 |  2    | LED | [Amazon](https://www.amazon.com/dp/B0G4LV2DZ6) |
 |  1    | 10K Rotary Potentiometer | [Amazon](https://www.amazon.com/dp/B071ZVNFJ8) |
 
+## Steps
 
+1. Orient your breadboard as shown with row 1 at the top
+   ![Orient Breadboard](../images/01_breadboard.png)
+
+2. Carefully insert your 555 timer chip into the breadboard as shown, making sure to
+   orient the 555's pin 1 through 4 on the left, "half moon" notch pointing upward
+   ![555 Placement](../images/02_add_555.png
+)
