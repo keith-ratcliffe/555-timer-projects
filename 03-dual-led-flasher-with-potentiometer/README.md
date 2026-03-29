@@ -20,9 +20,23 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 ## Steps
 
 1. Orient your breadboard as shown with row 1 at the top
+
    ![Orient Breadboard](../images/03/01_breadboard.png)
 
-2. Carefully insert your 555 timer chip into the breadboard as shown, making sure to
-   orient the 555's pin 1 through 4 on the left, "half moon" notch pointing upward
-   ![555 Placement](../images/03/02_add_555.png
-)
+2. Carefully insert your 555 timer chip into the breadboard as shown. The row that you choose
+   is up to you. What is important is that the 555's ground ("GND", or pin 1) is on the left and
+   power ("VCC", or pin 8) is on the right, with the 555's "half moon" notch oriented upward
+
+   ![555 Placement](../images/03/02_add_555.png)
+
+3. Use a small jumper wire to connect VCC (pin 8) to the positive (+) rail, or "power" rail as shown
+
+   ![Connect VCC to Power](../images/03/03_add_vcc_jumper.png)
+
+
+
+
+
+
+
+
