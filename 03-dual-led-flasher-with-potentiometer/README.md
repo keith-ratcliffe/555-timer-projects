@@ -10,7 +10,7 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 |  1    | Breadboard | [Amazon](https://www.amazon.com/dp/B07LFD4LT6) |
 |  7    | Jumper Wires | [Amazon](https://www.amazon.com/dp/B08YRGVYPV) |
 |  1    | 555 Timer Chip | [Amazon](https://www.amazon.com/dp/B0CBKFMWDP) |
-|  1    | 100 microfarad (\(\mu\text{F}\)) Capacitor | [Amazon](https://www.amazon.com/dp/B0FS1KSBK5) |
+|  1    | 100 uF Capacitor | [Amazon](https://www.amazon.com/dp/B0FS1KSBK5) |
 |  1    | 1K Ohm Resistor | [Amazon](https://www.amazon.com/dp/B0FP1YFMVM) |
 |  2    | 270 Ohm Resistor | [Amazon](https://www.amazon.com/dp/B07QG1VDJ9) |
 |  2    | 1N4007 Rectifier Diode | [Amazon](https://www.amazon.com/dp/B0FC2CQF24) |
