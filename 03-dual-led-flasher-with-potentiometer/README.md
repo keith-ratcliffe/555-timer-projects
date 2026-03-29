@@ -33,7 +33,9 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 
    ![Connect VCC to Power](../images/03/03_add_vcc_jumper.png)
 
+4. Use a small jumper wire to connect GND (pin 1) to the negative (-) rail, or "ground" rail as shown
 
+   ![Connect VCC to Power](../images/03/04_add_ground_jumper.png)
 
 
 
