@@ -10,7 +10,7 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 |  1    | Breadboard | [Amazon](https://www.amazon.com/dp/B07LFD4LT6) |
 |  7    | Jumper Wires | [Amazon](https://www.amazon.com/dp/B08YRGVYPV) |
 |  1    | 555 Timer Chip | [Amazon](https://www.amazon.com/dp/B0CBKFMWDP) |
-|  1    | 100 uF Capacitor | [Amazon](https://www.amazon.com/dp/B0FS1KSBK5) |
+|  1    | 100 uF Electrolytic Capacitor | [Amazon](https://www.amazon.com/dp/B0FS1KSBK5) |
 |  1    | 1K Ohm Resistor | [Amazon](https://www.amazon.com/dp/B0FP1YFMVM) |
 |  2    | 270 Ohm Resistor | [Amazon](https://www.amazon.com/dp/B07QG1VDJ9) |
 |  2    | 1N4007 Rectifier Diode | [Amazon](https://www.amazon.com/dp/B0FC2CQF24) |
@@ -19,7 +19,7 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 
 ## Circuit Build Steps
 
-### Step 1
+### Step 1:
 
    Orient your breadboard with row 1 at the top
 
@@ -27,7 +27,7 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 
 ---
 
-### Step 2
+### Step 2:
 
    Carefully insert your 555 timer chip into the breadboard. The row that you choose
    is up to you. What is important is that the 555's ground ("GND", or pin 1) is on the left and
@@ -37,23 +37,23 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 
 ---
 
-### Step 3
+### Step 3:
 
-   Use a small jumper wire to connect VCC (pin 8) to the positive (+) rail, or red "power" rail
+   Use a small jumper wire to connect VCC (pin 8) to the breadboard's red power (+) rail
 
    ![Connect VCC to Power Rail](../images/03/03_add_vcc_jumper.png)
 
 ---
 
-### Step 4
+### Step 4:
 
-   Use a small jumper wire to connect the 555's GND (pin 1) to the negative (-) rail, or blue "ground" rail
+   Use a small jumper wire to connect the 555's GND (pin 1) to the breadboard's blue ground (-) rail
 
    ![Connect GND to Ground Rail](../images/03/04_add_gnd_jumper.png)
 
 ---
 
-### Step 5
+### Step 5:
 
    Use a slightly longer jumper wire to connect the 555's TRIGGER (pin 2) to THRESHOLD (pin 6)
 
@@ -61,12 +61,23 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 
 ---
 
-### Step 6
+### Step 6:
 
    Use another similarly-sized jumper to connect the 555's RESET (pin 4) to VCC (pin 8)
 
    ![Connect 4 to 8](../images/03/06_add_4_to_8_jumper.png)
 
 ---
+
+### Step 7:
+
+   Connect the 100 uF capacitor to the 555's TRIGGER (pin 2). The capacitor's positive pole (long leg, or "anode")
+   should connect to the 555's pin 2, and the capacitor's negative pole (short leg, or "cathode") should be connected
+   to the breadboard's blue ground (-) rail
+
+   ![Add 100uF capacitor](../images/03/07_add_100uf_capacitor.png)
+
+
+
 
 
