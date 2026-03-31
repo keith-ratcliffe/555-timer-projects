@@ -1,0 +1,385 @@
+#!/usr/bin/env python3
+"""Generate a standalone PDF from a 555 timer project's README.md.
+
+Usage:
+    python3 scripts/generate_pdf.py <project-number>
+
+Examples:
+    python3 scripts/generate_pdf.py 01
+    python3 scripts/generate_pdf.py 03
+
+The PDF is written to docs/<project-number>/<project-dir-name>.pdf.
+"""
+
+import sys
+import re
+import xml.etree.ElementTree as ET
+from pathlib import Path
+
+import markdown
+from reportlab.lib import colors
+from reportlab.lib.enums import TA_LEFT
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib.units import inch
+from reportlab.platypus import (
+    HRFlowable,
+    Image,
+    Paragraph,
+    SimpleDocTemplate,
+    Spacer,
+    Table,
+    TableStyle,
+)
+
+REPO_ROOT = Path(__file__).parent.parent
+
+PAGE_W = letter[0] - 2 * inch  # usable text width
+
+
+# ---------------------------------------------------------------------------
+# Styles
+# ---------------------------------------------------------------------------
+
+def _build_styles():
+    base = getSampleStyleSheet()
+    return {
+        'h1': ParagraphStyle(
+            'h1', parent=base['Heading1'], fontSize=20, spaceAfter=10, spaceBefore=14),
+        'h2': ParagraphStyle(
+            'h2', parent=base['Heading2'], fontSize=15, spaceAfter=8, spaceBefore=10),
+        'h3': ParagraphStyle(
+            'h3', parent=base['Heading3'], fontSize=12, spaceAfter=6, spaceBefore=8),
+        'normal': ParagraphStyle(
+            'normal', parent=base['Normal'], fontSize=10, spaceAfter=6, leading=14),
+        'code_block': ParagraphStyle(
+            'code_block', parent=base['Code'], fontSize=8, fontName='Courier',
+            spaceAfter=4, leftIndent=12, backColor=colors.HexColor('#f5f5f5')),
+        'list_item': ParagraphStyle(
+            'list_item', parent=base['Normal'], fontSize=10, leading=14,
+            spaceAfter=3, leftIndent=18, bulletIndent=6),
+        'list_item_l2': ParagraphStyle(
+            'list_item_l2', parent=base['Normal'], fontSize=10, leading=14,
+            spaceAfter=2, leftIndent=36, bulletIndent=24),
+        'th': ParagraphStyle(
+            'th', parent=base['Normal'], fontSize=9, fontName='Helvetica-Bold'),
+        'td': ParagraphStyle(
+            'td', parent=base['Normal'], fontSize=9),
+    }
+
+
+# ---------------------------------------------------------------------------
+# Inline markup helpers
+# ---------------------------------------------------------------------------
+
+def _escape_para(text):
+    """Escape characters that would break a ReportLab Paragraph."""
+    text = text.replace('&', '&amp;')
+    text = text.replace('<', '&lt;')
+    text = text.replace('>', '&gt;')
+    return text
+
+
+def _inline_text(el):
+    """Collect inline text from an element, converting inline tags to
+    ReportLab Paragraph markup (<b>, <i>, <font name="Courier">)."""
+    parts = []
+
+    def _collect(node, tags):
+        tag = node.tag if hasattr(node, 'tag') else None
+
+        if tag in ('strong', 'b'):
+            parts.append('<b>')
+            _gather(node, tags + [tag])
+            parts.append('</b>')
+        elif tag in ('em', 'i'):
+            parts.append('<i>')
+            _gather(node, tags + [tag])
+            parts.append('</i>')
+        elif tag == 'code':
+            parts.append('<font name="Courier" size="8">')
+            _gather(node, tags + [tag])
+            parts.append('</font>')
+        elif tag == 'a':
+            # Render link text; ignore href
+            _gather(node, tags + [tag])
+        elif tag == 'br':
+            parts.append('<br/>')
+            if node.tail:
+                parts.append(_escape_para(node.tail))
+        elif tag == 'img':
+            # Inline images: use alt text
+            alt = node.get('alt', '')
+            if alt:
+                parts.append(_escape_para(f'[{alt}]'))
+            if node.tail:
+                parts.append(_escape_para(node.tail))
+        elif tag is not None:
+            # Unknown inline tag — just render contents
+            _gather(node, tags + [tag])
+        else:
+            # Plain text node (shouldn't happen, but safety)
+            parts.append(_escape_para(str(node)))
+
+    def _gather(node, tags):
+        if node.text:
+            parts.append(_escape_para(node.text))
+        for child in node:
+            _collect(child, tags)
+            # tail text belongs to parent context
+            if child.tail:
+                parts.append(_escape_para(child.tail))
+
+    if el.text:
+        parts.append(_escape_para(el.text))
+    for child in el:
+        _collect(child, [])
+        if child.tail:
+            parts.append(_escape_para(child.tail))
+
+    return ''.join(parts)
+
+
+# ---------------------------------------------------------------------------
+# Element processors
+# ---------------------------------------------------------------------------
+
+def _process_table(el, styles):
+    """Convert a <table> element into a ReportLab Table flowable."""
+    rows = []
+    has_header = False
+
+    for section in el:  # thead / tbody / tr
+        if section.tag in ('thead', 'tbody'):
+            for tr in section:
+                row = _process_tr(tr, section.tag == 'thead', styles)
+                rows.append(row)
+                if section.tag == 'thead':
+                    has_header = True
+        elif section.tag == 'tr':
+            row = _process_tr(section, False, styles)
+            rows.append(row)
+
+    if not rows:
+        return []
+
+    col_count = max(len(r) for r in rows)
+    col_w = PAGE_W / col_count
+
+    tbl = Table(rows, colWidths=[col_w] * col_count, repeatRows=1 if has_header else 0)
+    style_cmds = [
+        ('GRID', (0, 0), (-1, -1), 0.5, colors.grey),
+        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+        ('LEFTPADDING', (0, 0), (-1, -1), 5),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 5),
+        ('TOPPADDING', (0, 0), (-1, -1), 3),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
+    ]
+    if has_header:
+        style_cmds.append(('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#dce6f1')))
+    tbl.setStyle(TableStyle(style_cmds))
+    return [tbl, Spacer(1, 8)]
+
+
+def _process_tr(tr, is_header, styles):
+    row = []
+    for cell in tr:
+        text = _inline_text(cell)
+        style = styles['th'] if (is_header or cell.tag == 'th') else styles['td']
+        row.append(Paragraph(text or ' ', style))
+    return row
+
+
+def _process_list(el, styles, depth=0):
+    """Convert a <ul> or <ol> element into a list of Paragraph flowables."""
+    flowables = []
+    list_type = el.tag  # 'ul' or 'ol'
+    item_style = styles['list_item'] if depth == 0 else styles['list_item_l2']
+
+    for i, li in enumerate(el):
+        if li.tag != 'li':
+            continue
+
+        # Collect direct text and inline children (skip nested lists)
+        direct_parts = []
+        if li.text:
+            direct_parts.append(_escape_para(li.text))
+        nested = []
+        for child in li:
+            if child.tag in ('ul', 'ol'):
+                nested.append(child)
+            else:
+                # inline element inside li
+                if child.tag in ('strong', 'b'):
+                    direct_parts.append('<b>')
+                    if child.text:
+                        direct_parts.append(_escape_para(child.text))
+                    direct_parts.append('</b>')
+                elif child.tag in ('em', 'i'):
+                    direct_parts.append('<i>')
+                    if child.text:
+                        direct_parts.append(_escape_para(child.text))
+                    direct_parts.append('</i>')
+                elif child.tag == 'code':
+                    direct_parts.append('<font name="Courier" size="8">')
+                    if child.text:
+                        direct_parts.append(_escape_para(child.text))
+                    direct_parts.append('</font>')
+                else:
+                    if child.text:
+                        direct_parts.append(_escape_para(child.text))
+                if child.tail:
+                    direct_parts.append(_escape_para(child.tail))
+
+        bullet = '•' if list_type == 'ul' else f'{i + 1}.'
+        item_text = f'<b>{bullet}</b> ' + ''.join(direct_parts).strip()
+        flowables.append(Paragraph(item_text, item_style))
+
+        for nested_list in nested:
+            flowables.extend(_process_list(nested_list, styles, depth + 1))
+
+    return flowables
+
+
+def _process_element(el, styles, project_dir):
+    """Convert one top-level HTML element to a list of ReportLab flowables."""
+    tag = el.tag
+
+    if tag in ('h1', 'h2', 'h3'):
+        text = _inline_text(el)
+        return [Paragraph(text, styles[tag])]
+
+    if tag == 'p':
+        # Check for a sole <img> child (image paragraph)
+        children = list(el)
+        if len(children) == 1 and children[0].tag == 'img' and not (el.text or '').strip():
+            img_el = children[0]
+            src = img_el.get('src', '')
+            if src:
+                img_path = (project_dir / src).resolve()
+                if img_path.exists():
+                    try:
+                        img = Image(str(img_path))
+                        # Scale to fit page width while keeping aspect ratio
+                        iw, ih = img.imageWidth, img.imageHeight
+                        if iw > PAGE_W:
+                            scale = PAGE_W / iw
+                            img.drawWidth = PAGE_W
+                            img.drawHeight = ih * scale
+                        else:
+                            img.drawWidth = iw
+                            img.drawHeight = ih
+                        img.hAlign = 'LEFT'
+                        return [img, Spacer(1, 8)]
+                    except Exception:
+                        pass
+            # Fallback: render alt text
+            alt = img_el.get('alt', '')
+            return [Paragraph(f'[Image: {alt}]', styles['normal'])] if alt else []
+
+        text = _inline_text(el)
+        if text.strip():
+            return [Paragraph(text, styles['normal'])]
+        return []
+
+    if tag in ('ul', 'ol'):
+        items = _process_list(el, styles)
+        return items + [Spacer(1, 4)]
+
+    if tag == 'table':
+        return _process_table(el, styles)
+
+    if tag == 'pre':
+        code_el = el.find('code')
+        raw = (code_el.text if code_el is not None else el.text) or ''
+        flowables = []
+        for line in raw.split('\n'):
+            safe = line.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+            safe = safe.replace(' ', '&nbsp;') or '&nbsp;'
+            flowables.append(Paragraph(safe, styles['code_block']))
+        return flowables + [Spacer(1, 4)]
+
+    if tag == 'hr':
+        return [
+            Spacer(1, 4),
+            HRFlowable(width='100%', thickness=0.75, color=colors.HexColor('#999999')),
+            Spacer(1, 4),
+        ]
+
+    if tag == 'blockquote':
+        text = _inline_text(el)
+        if text.strip():
+            style = ParagraphStyle(
+                'bq', parent=styles['normal'],
+                leftIndent=24, textColor=colors.HexColor('#555555'))
+            return [Paragraph(text, style)]
+        return []
+
+    # Fallback: try to render as paragraph
+    text = _inline_text(el)
+    if text.strip():
+        return [Paragraph(text, styles['normal'])]
+    return []
+
+
+# ---------------------------------------------------------------------------
+# Main conversion
+# ---------------------------------------------------------------------------
+
+def generate_pdf(project_num):
+    # Locate the project directory
+    matches = sorted(REPO_ROOT.glob(f'{project_num}-*'))
+    if not matches:
+        sys.exit(f"Error: no project directory found matching '{project_num}-*'")
+    project_dir = matches[0]
+
+    readme_path = project_dir / 'README.md'
+    if not readme_path.exists():
+        sys.exit(f"Error: README.md not found in {project_dir}")
+
+    # Prepare output directory and path
+    out_dir = REPO_ROOT / 'docs' / project_num
+    out_dir.mkdir(parents=True, exist_ok=True)
+    pdf_path = out_dir / f'{project_dir.name}.pdf'
+
+    # Convert Markdown → HTML → XML tree
+    md_text = readme_path.read_text(encoding='utf-8')
+    html_str = markdown.markdown(
+        md_text,
+        extensions=['tables', 'fenced_code'],
+        output_format='xhtml',
+    )
+
+    # Wrap in a root element and parse as XML
+    try:
+        root = ET.fromstring(f'<root>{html_str}</root>')
+    except ET.ParseError as exc:
+        sys.exit(f"Error parsing generated HTML: {exc}")
+
+    # Build flowables
+    styles = _build_styles()
+    flowables = []
+    for el in root:
+        flowables.extend(_process_element(el, styles, project_dir))
+
+    if not flowables:
+        flowables = [Paragraph('(empty document)', styles['normal'])]
+
+    # Render PDF
+    doc = SimpleDocTemplate(
+        str(pdf_path),
+        pagesize=letter,
+        leftMargin=inch,
+        rightMargin=inch,
+        topMargin=inch,
+        bottomMargin=inch,
+        title=project_dir.name,
+    )
+    doc.build(flowables)
+    print(f"PDF written to: {pdf_path}")
+
+
+if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        sys.exit('Usage: python3 generate_pdf.py <project-number>  (e.g., 01)')
+    generate_pdf(sys.argv[1])
