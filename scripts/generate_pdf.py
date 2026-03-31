@@ -12,6 +12,7 @@ The PDF is written to docs/<project-number>/<project-dir-name>.pdf.
 """
 
 import io
+import re
 import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -26,6 +27,8 @@ from reportlab.lib.units import inch
 from reportlab.platypus import (
     HRFlowable,
     Image,
+    KeepTogether,
+    PageBreak,
     Paragraph,
     SimpleDocTemplate,
     Spacer,
@@ -35,7 +38,10 @@ from reportlab.platypus import (
 
 REPO_ROOT = Path(__file__).parent.parent
 
-PAGE_W = letter[0] - 2 * inch  # usable text width
+PAGE_W = letter[0] - 2 * inch   # usable text width
+PAGE_H = letter[1] - 2 * inch   # usable page height
+# Leave ~2 inches for the step heading + bullet text above the image.
+_IMG_MAX_DRAW_H = PAGE_H - 2 * inch
 
 
 # ---------------------------------------------------------------------------
@@ -273,14 +279,14 @@ def _render_img(img_el, project_dir, styles):
                 buf.seek(0)
 
                 img = Image(buf)
-                # Scale draw dimensions to fit page width
-                if pil_w > PAGE_W:
-                    scale = PAGE_W / pil_w
-                    img.drawWidth = PAGE_W
-                    img.drawHeight = pil_h * scale
-                else:
-                    img.drawWidth = pil_w
-                    img.drawHeight = pil_h
+                # Scale draw dimensions to fit within page width and max height.
+                draw_w = float(min(pil_w, PAGE_W))
+                draw_h = pil_h * (draw_w / pil_w)
+                if draw_h > _IMG_MAX_DRAW_H:
+                    draw_w = draw_w * (_IMG_MAX_DRAW_H / draw_h)
+                    draw_h = _IMG_MAX_DRAW_H
+                img.drawWidth = draw_w
+                img.drawHeight = draw_h
                 img.hAlign = 'LEFT'
                 return [img, Spacer(1, 8)]
             except Exception:
@@ -361,6 +367,61 @@ def _process_element(el, styles, project_dir):
 
 
 # ---------------------------------------------------------------------------
+# Step grouping helpers
+# ---------------------------------------------------------------------------
+
+_STEP_RE = re.compile(r'^\s*Step\s+\d+', re.IGNORECASE)
+
+
+def _is_step_heading(el):
+    """True if el is a non-image heading whose text starts with 'Step N'."""
+    if el.tag not in ('h2', 'h3'):
+        return False
+    if _element_is_img_only(el) is not None:
+        return False
+    return bool(_STEP_RE.match(''.join(el.itertext())))
+
+
+def _group_elements(all_elements):
+    """Split top-level HTML elements into three buckets:
+
+    Returns (preamble, steps, trailing) where:
+      - preamble: list of elements before the first numbered step
+      - steps:    list of lists, one inner list per step (heading → … → image)
+      - trailing: list of elements after the last step's closing image
+    """
+    preamble = []
+    steps = []
+    trailing = []
+    current_step = None   # None = not inside a step
+    past_steps = False    # True once we have started the first step
+
+    for el in all_elements:
+        if _is_step_heading(el):
+            # Close any open step (shouldn't normally happen, but be safe)
+            if current_step is not None:
+                steps.append(current_step)
+            current_step = [el]
+            past_steps = True
+        elif current_step is not None:
+            current_step.append(el)
+            # An image-only element closes the current step
+            if _element_is_img_only(el) is not None:
+                steps.append(current_step)
+                current_step = None
+        elif past_steps:
+            trailing.append(el)
+        else:
+            preamble.append(el)
+
+    # Flush any step that had no closing image
+    if current_step is not None:
+        steps.append(current_step)
+
+    return preamble, steps, trailing
+
+
+# ---------------------------------------------------------------------------
 # Main conversion
 # ---------------------------------------------------------------------------
 
@@ -387,18 +448,32 @@ def generate_pdf(project_num):
         extensions=['tables', 'fenced_code'],
         output_format='xhtml',
     )
-
-    # Wrap in a root element and parse as XML
     try:
         root = ET.fromstring(f'<root>{html_str}</root>')
     except ET.ParseError as exc:
         sys.exit(f"Error parsing generated HTML: {exc}")
 
-    # Build flowables
     styles = _build_styles()
-    flowables = []
-    for el in root:
-        flowables.extend(_process_element(el, styles, project_dir))
+
+    def els_to_flowables(elements):
+        result = []
+        for el in elements:
+            result.extend(_process_element(el, styles, project_dir))
+        return result
+
+    preamble_els, step_groups, trailing_els = _group_elements(list(root))
+
+    # --- Assemble final flowable list ---
+    flowables = els_to_flowables(preamble_els)
+
+    for step_els in step_groups:
+        # Each step starts on a fresh page and is kept together.
+        flowables.append(PageBreak())
+        flowables.append(KeepTogether(els_to_flowables(step_els)))
+
+    if trailing_els:
+        flowables.append(PageBreak())
+        flowables.extend(els_to_flowables(trailing_els))
 
     if not flowables:
         flowables = [Paragraph('(empty document)', styles['normal'])]
