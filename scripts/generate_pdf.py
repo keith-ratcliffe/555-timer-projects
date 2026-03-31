@@ -11,12 +11,13 @@ Examples:
 The PDF is written to docs/<project-number>/<project-dir-name>.pdf.
 """
 
+import io
 import sys
-import re
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
 import markdown
+from PIL import Image as PILImage
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_LEFT
 from reportlab.lib.pagesizes import letter
@@ -241,41 +242,78 @@ def _process_list(el, styles, depth=0):
     return flowables
 
 
+_IMG_MAX_PX = 1200   # max pixel width when resampling source images
+_IMG_JPEG_Q = 85     # JPEG quality for embedded images
+
+
+def _render_img(img_el, project_dir, styles):
+    """Return flowables for an <img> element, or [] if it cannot be rendered.
+
+    Large source images are downsampled to _IMG_MAX_PX wide and re-encoded as
+    JPEG before embedding, which keeps PDF file size manageable.
+    """
+    src = img_el.get('src', '')
+    if src:
+        img_path = (project_dir / src).resolve()
+        if img_path.exists():
+            try:
+                pil = PILImage.open(img_path)
+                pil_w, pil_h = pil.size
+
+                # Downsample if wider than the threshold
+                if pil_w > _IMG_MAX_PX:
+                    new_h = int(pil_h * _IMG_MAX_PX / pil_w)
+                    pil = pil.resize((_IMG_MAX_PX, new_h), PILImage.LANCZOS)
+                    pil_w, pil_h = pil.size
+
+                # Re-encode as JPEG into an in-memory buffer
+                buf = io.BytesIO()
+                rgb = pil.convert('RGB')
+                rgb.save(buf, format='JPEG', quality=_IMG_JPEG_Q, optimize=True)
+                buf.seek(0)
+
+                img = Image(buf)
+                # Scale draw dimensions to fit page width
+                if pil_w > PAGE_W:
+                    scale = PAGE_W / pil_w
+                    img.drawWidth = PAGE_W
+                    img.drawHeight = pil_h * scale
+                else:
+                    img.drawWidth = pil_w
+                    img.drawHeight = pil_h
+                img.hAlign = 'LEFT'
+                return [img, Spacer(1, 8)]
+            except Exception:
+                pass
+    alt = img_el.get('alt', '')
+    return [Paragraph(f'[Image: {alt}]', styles['normal'])] if alt else []
+
+
+def _element_is_img_only(el):
+    """Return the sole <img> child if the element contains only an image."""
+    children = list(el)
+    if len(children) == 1 and children[0].tag == 'img' and not (el.text or '').strip():
+        return children[0]
+    return None
+
+
 def _process_element(el, styles, project_dir):
     """Convert one top-level HTML element to a list of ReportLab flowables."""
     tag = el.tag
 
     if tag in ('h1', 'h2', 'h3'):
+        # The markdown parser turns   ![alt](src)\n---   into <h2><img/></h2>.
+        # Detect this and render as an image instead of a heading.
+        img_el = _element_is_img_only(el)
+        if img_el is not None:
+            return _render_img(img_el, project_dir, styles)
         text = _inline_text(el)
         return [Paragraph(text, styles[tag])]
 
     if tag == 'p':
-        # Check for a sole <img> child (image paragraph)
-        children = list(el)
-        if len(children) == 1 and children[0].tag == 'img' and not (el.text or '').strip():
-            img_el = children[0]
-            src = img_el.get('src', '')
-            if src:
-                img_path = (project_dir / src).resolve()
-                if img_path.exists():
-                    try:
-                        img = Image(str(img_path))
-                        # Scale to fit page width while keeping aspect ratio
-                        iw, ih = img.imageWidth, img.imageHeight
-                        if iw > PAGE_W:
-                            scale = PAGE_W / iw
-                            img.drawWidth = PAGE_W
-                            img.drawHeight = ih * scale
-                        else:
-                            img.drawWidth = iw
-                            img.drawHeight = ih
-                        img.hAlign = 'LEFT'
-                        return [img, Spacer(1, 8)]
-                    except Exception:
-                        pass
-            # Fallback: render alt text
-            alt = img_el.get('alt', '')
-            return [Paragraph(f'[Image: {alt}]', styles['normal'])] if alt else []
+        img_el = _element_is_img_only(el)
+        if img_el is not None:
+            return _render_img(img_el, project_dir, styles)
 
         text = _inline_text(el)
         if text.strip():
