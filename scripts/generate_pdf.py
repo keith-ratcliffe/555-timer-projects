@@ -207,7 +207,10 @@ def _process_list(el, styles, depth=0):
         if li.tag != 'li':
             continue
 
-        # Collect direct text and inline children (skip nested lists)
+        # Collect direct text and inline children (skip nested lists).
+        # "Loose" lists (blank lines between items in Markdown) wrap each
+        # item's content in a <p> element; "tight" lists have inline content
+        # directly inside <li>.  Handle both cases.
         direct_parts = []
         if li.text:
             direct_parts.append(_escape_para(li.text))
@@ -215,8 +218,14 @@ def _process_list(el, styles, depth=0):
         for child in li:
             if child.tag in ('ul', 'ol'):
                 nested.append(child)
+            elif child.tag == 'p':
+                # Loose-list paragraph — use _inline_text to capture the full
+                # content including any nested <strong>, <em>, <code>, etc.
+                direct_parts.append(_inline_text(child))
+                if child.tail:
+                    direct_parts.append(_escape_para(child.tail))
             else:
-                # inline element inside li
+                # Tight-list: inline element directly inside <li>
                 if child.tag in ('strong', 'b'):
                     direct_parts.append('<b>')
                     if child.text:
