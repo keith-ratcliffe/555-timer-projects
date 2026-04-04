@@ -43,7 +43,7 @@ Place the breadboard on a flat surface, and orient it so that Row 1 is at the to
 
 ## Step 2: Add the 555 Chip
 
-* Carefully insert your 555 timer chip with its half-moon notch pointing up to the top of the breadboard
+* Carefully insert your 555 timer chip with its half-moon notch pointing upward, toward the top of the breadboard
 
 * The 4 pins on each side of the 555 should span the wide center channel that vertically 
   divides the left and right halves of your breadboard
