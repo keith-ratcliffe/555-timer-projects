@@ -14,7 +14,7 @@ This project demonstrates how to build a simple 555 timer circuit with a single 
 |  3    | ` * ` Jumper Wires | [Amazon](https://www.amazon.com/dp/B08YRGVYPV) |
 |  1    | 555 Timer Chip | [Amazon](https://www.amazon.com/dp/B0CBKFMWDP) |
 |  1    | 1uF Electrolytic Capacitor | [Amazon](https://www.amazon.com/dp/B0F8C4BBNT) |
-|  1    | ` ** ` 100K Ohm Resistor | [Amazon](https://www.amazon.com/dp/B0FP1YFMVM) |
+|  1    | ` ** ` 100K Ohm Resistor | [Amazon](https://www.amazon.com/dp/B0B4JDHXC9) |
 |  1    | ` ** ` 470K Ohm Resistor | [Amazon](https://www.amazon.com/dp/B07HDGJDVS) |
 |  1    | ` ** ` 270 Ohm Resistor | [Amazon](https://www.amazon.com/dp/B07QG1VDJ9) |
 |  1    | Light-Emitting Diode (LED) | [Amazon](https://www.amazon.com/dp/B0G4LV2DZ6) |
