@@ -58,14 +58,14 @@ steps below will explain how to identify and properly connect them in the circui
 
 ## Step 3: Connect 555's VCC [8] to Breadboard's Power Rail (+)
 
-* Use a short jumper wire to connect the 555's **VCC** pin **[8]** to the breadboard's red power **(+)** rail 
+* Use a short jumper wire to connect the 555's **VCC** pin **[8]** to the breadboard's red power rail **(+)**
 
 ![Connect VCC to Power Rail](../images/03/03_add_vcc_jumper.png)
 ---
 
 ## Step 4: Connect 555's GND [1] to Breadboard's Ground Rail (-)
 
-* Use a short jumper wire to connect the 555's **GND** pin **[1]** to the breadboard's blue ground **(-)** rail
+* Use a short jumper wire to connect the 555's **GND** pin **[1]** to the breadboard's blue ground rail **(-)**
 
 ![Connect GND to Ground Rail](../images/03/04_add_gnd_jumper.png)
 ---
@@ -88,7 +88,7 @@ steps below will explain how to identify and properly connect them in the circui
 
 * Connect the capacitor's positive pole (long leg, "anode") to the 555's **TRIGGER** pin **[2]**
    
-* Connect the capacitor's negative pole (short leg, "cathode") to the breadboard's blue ground rail **(-)**
+* Connect the capacitor's negative pole (short leg, "cathode") to the left side ground rail **(-)**
 
 ![Add 100uF capacitor](../images/03/07_add_100uf_capacitor.png)
 ---
@@ -117,9 +117,9 @@ steps below will explain how to identify and properly connect them in the circui
   by a silver stripe on the rectifier's central barrel. Thus, its other pole is positive **(+)** (anode)
 
 * Connect the positive **(+)** pole of the rectifier to the same row as your **270 ohm resistor** terminating
-  row from Step 9.
+  row from Step 9
 
-* Connect the negative **(-)**, silver-striped pole to an empty row down below.
+* Connect the negative **(-)**, silver-striped pole to an empty row down below
 
 ![Add Rectifier 1](../images/03/10_add_rectifier_1.png)
 ---
@@ -137,7 +137,7 @@ steps below will explain how to identify and properly connect them in the circui
 
 * Similar to Step 9, connect one end of the **270 ohm resistor** to the 555's **OUTPUT** pin **[3]**
 
-* As before, connect the other end of the resistor to an **empty row** below the 555 chip.
+* As before, connect the other end of the resistor to an **empty row** below the 555 chip
 
 ![Add 270 Resistor 2](../images/03/12_add_270_resistor_2.png)
 ---
