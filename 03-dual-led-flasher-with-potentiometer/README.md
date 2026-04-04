@@ -51,7 +51,7 @@ Place the breadboard on a flat surface, and orient it so that Row 1 is at the to
 * The horizontal row that you choose for inserting the 555 is up to you, but make sure
   to leave plenty of room below the 555 to expand downward with the remaining components
 
-* Anywhere between row 5 and row 11 should be ideal
+* Anywhere between row 5 and row 11 should be fine
 
 ![555 Placement](../images/03/02_add_555.png)
 ---
