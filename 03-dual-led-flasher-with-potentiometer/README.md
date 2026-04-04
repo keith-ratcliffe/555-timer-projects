@@ -36,7 +36,7 @@ steps below will explain how to identify and properly connect them in the circui
 
 ## Step 1: Breadboard Orientation
 
-* Place the breadboard on a flat surface, and orient it so that Row 1 is at the top from your point of view.
+Place the breadboard on a flat surface, and orient it so that Row 1 is at the top from your point of view
 
 ![Orient Breadboard](../images/03/01_breadboard.png)
 ---
@@ -46,7 +46,7 @@ steps below will explain how to identify and properly connect them in the circui
 * Carefully insert your 555 timer chip with its half-moon notch pointing up to the top of the breadboard
 
 * The 4 pins on each side of the 555 should span the wide center channel that vertically 
-  divides the left and right halves of your breadboard.
+  divides the left and right halves of your breadboard
 
 * The horizontal row that you choose for inserting the 555 is up to you, but make sure
   to leave plenty of room below the 555 to expand downward with the remaining components
@@ -58,28 +58,28 @@ steps below will explain how to identify and properly connect them in the circui
 
 ## Step 3: Connect 555's VCC [8] to Breadboard's Power Rail (+)
 
-* Use a short jumper wire to connect the 555's **VCC** pin **[8]** to the breadboard's red power rail **(+)**
+Use a short jumper wire to connect the 555's **VCC** pin **[8]** to the breadboard's red power rail **(+)**
 
 ![Connect VCC to Power Rail](../images/03/03_add_vcc_jumper.png)
 ---
 
 ## Step 4: Connect 555's GND [1] to Breadboard's Ground Rail (-)
 
-* Use a short jumper wire to connect the 555's **GND** pin **[1]** to the breadboard's blue ground rail **(-)**
+Use a short jumper wire to connect the 555's **GND** pin **[1]** to the breadboard's blue ground rail **(-)**
 
 ![Connect GND to Ground Rail](../images/03/04_add_gnd_jumper.png)
 ---
 
 ## Step 5: Connect 555's TRIGGER [2] and THRESHOLD [6] pins
 
-* Use a medium jumper wire to connect the 555's **TRIGGER** pin **[2]** and **THRESHOLD** pin **[6]**
+Use a medium jumper wire to connect the 555's **TRIGGER** pin **[2]** and **THRESHOLD** pin **[6]**
 
 ![Connect 2 to 6](../images/03/05_add_2_to_6_jumper.png)
 ---
 
 ## Step 6: Connect 555's RESET [4] and VCC [8] pins
 
-* Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **VCC** pin **[8]**
+Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **VCC** pin **[8]**
 
 ![Connect 4 to 8](../images/03/06_add_4_to_8_jumper.png)
 ---
@@ -113,8 +113,8 @@ steps below will explain how to identify and properly connect them in the circui
 
 ## Step 10: Connect the First Rectifier Diode (1 of 2) to 270 Ohm Resistor #1
 
-* Look closely at the **1N4007 rectifier diode**. Note that its negative **(-)** pole (cathode) is denoted
-  by a silver stripe on the rectifier's central barrel. Thus, its other pole is positive **(+)** (anode)
+* Look closely at the **1N4007 rectifier diode**. Note that its negative **(-)** pole (cathode) is the one 
+  with the silver stripe on the rectifier's central barrel. The other pole is positive **(+)** (anode)
 
 * Connect the positive **(+)** pole of the rectifier to the same row as your **270 ohm resistor** terminating
   row from Step 9
@@ -144,7 +144,7 @@ steps below will explain how to identify and properly connect them in the circui
 
 ## Step 13: Connect the Second Rectifier Diode (2 of 2) to 270 Ohm Resistor #2
 
-* Similar to Step 10, we need to connect **Rectifier #2** to **270 Ohm Resistor #2**, but this time we must
+* Similar to Step 10, we need to connect **Rectifier #2** to **270 Ohm Resistor #2**, but this time
   connect the silver-striped negative **(-)** pole of the rectifier to resistor #2's terminating row
 
 * Connect the positive **(+)** pole of the rectifier to an empty row down below, but this time connect
