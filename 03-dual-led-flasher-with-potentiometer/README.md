@@ -34,8 +34,6 @@ steps below will explain how to identify and properly connect them in the circui
 | --------- | ----- |
 | Multi-function Wire Stripping/Cutting Pliers | For trimming and stripping wires as needed ([Amazon](https://www.amazon.com/dp/B08Y6GDS61)) |
 
-# Circuit Build Steps
-
 ## Step 1: Breadboard Orientation
 
 * Place the breadboard on a flat surface, and orient it so that Row 1 is at the top from your point of view.
