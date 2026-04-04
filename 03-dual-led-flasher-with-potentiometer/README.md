@@ -13,23 +13,20 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 |  1    | Breadboard | [Amazon](https://www.amazon.com/dp/B07LFD4LT6) |
 |  7    | ` * ` Jumper Wires | [Amazon](https://www.amazon.com/dp/B08YRGVYPV) |
 |  1    | 555 Timer Chip | [Amazon](https://www.amazon.com/dp/B0CBKFMWDP) |
-|  1    | 100μF Electrolytic Capacitor | [Amazon](https://www.amazon.com/dp/B0FS1KSBK5) |
+|  1    | 100uF Electrolytic Capacitor | [Amazon](https://www.amazon.com/dp/B0FS1KSBK5) |
 |  1    | ` ** ` 1K Ohm Resistor | [Amazon](https://www.amazon.com/dp/B0FP1YFMVM) |
 |  2    | ` ** ` 270 Ohm Resistor | [Amazon](https://www.amazon.com/dp/B07QG1VDJ9) |
 |  2    | 1N4007 Rectifier Diode | [Amazon](https://www.amazon.com/dp/B0FC2CQF24) |
 |  2    | Light-Emitting Diode (LED) | [Amazon](https://www.amazon.com/dp/B0G4LV2DZ6) |
 |  1    | 10K Rotary Potentiometer | [Amazon](https://www.amazon.com/dp/B071ZVNFJ8) |
 
-` * ` Jumper wire lengths don't need to be precise, but the following should suffice (*your mileage may vary*)
-- **(2)** 1-inch wires ("short")
-- **(2)** 2-inch wires ("medium")
-- **(3)** 3-inch wires ("long")
+` * ` Jumper wire lengths don't need to be precise, but the following should suffice (*your mileage may vary*): **Two** 1-inch wires ("short"), **Two** 2-inch wires ("medium"), **Three** 3-inch wires ("long")
 
 ` ** ` Standard non-polarized resistor. That is, it dosen't matter which direction current flows through the resistors, so it won't matter how you connect them
 
-**NOTE:** The capacitor, LEDs, and rectifier diodes *are* polarized, so you'll need to identify their positive (+)
-  and negative (-) terminal wires, and ensure that current flows through them in the correct direction. The build
-  steps below will explain how to identify and properly connect these components in our circuit.
+The capacitor, LEDs, and rectifier diodes *are* polarized, so you'll need to identify their positive (+)
+and negative (-) terminal wires, and ensure that current flows through them in the correct direction. The build
+steps below will explain how to identify and properly connect them in the circuit.
 
 ### Optional Parts
 
@@ -48,13 +45,13 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 
 ## Step 2: Add the 555 Chip
 
-* Carefully insert your 555 timer chip with its "half moon" notch pointing upward
+* Carefully insert your 555 timer chip with its half-moon notch pointing up to the top of the breadboard
 
 * The 4 pins on each side of the 555 should span the wide center channel that vertically 
   divides the left and right halves of your breadboard.
 
 * The horizontal row that you choose for inserting the 555 is up to you, but make sure
-  to leave plenty of room below the 555 to expand downward with the remaining components.
+  to leave plenty of room below the 555 to expand downward with the remaining components
 
 * Anywhere between row 5 and row 11 should be ideal
 
@@ -77,23 +74,23 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 
 ## Step 5: Connect 555's TRIGGER [2] and THRESHOLD [6] pins
 
-* Use a medium-length jumper wire to connect the 555's **TRIGGER** pin **[2]** and **THRESHOLD** pin **[6]**
+* Use a medium jumper wire to connect the 555's **TRIGGER** pin **[2]** and **THRESHOLD** pin **[6]**
 
 ![Connect 2 to 6](../images/03/05_add_2_to_6_jumper.png)
 ---
 
 ## Step 6: Connect 555's RESET [4] and VCC [8] pins
 
-* Use a medium-length jumper wire to connect the 555's **RESET** pin **[4]** and **VCC** pin **[8]**
+* Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **VCC** pin **[8]**
 
 ![Connect 4 to 8](../images/03/06_add_4_to_8_jumper.png)
 ---
 
-## Step 7: Connect 100μF Capacitor to 555's TRIGGER [2] and Ground Rail (-)
+## Step 7: Connect 100uF Capacitor to 555's TRIGGER [2] and Ground Rail (-)
 
 * Connect the capacitor's positive pole (long leg, "anode") to the 555's **TRIGGER** pin **[2]**
    
-* Connect the capacitor's negative pole (short leg, "cathode") to the breadboard's blue ground **(-)** rail
+* Connect the capacitor's negative pole (short leg, "cathode") to the breadboard's blue ground rail **(-)**
 
 ![Add 100uF capacitor](../images/03/07_add_100uf_capacitor.png)
 ---
@@ -102,7 +99,7 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 
 * Connect one end of the 1K ohm resistor to the 555's **DISCHARGE** pin **[7]**
 
-* Connect the other end to the breadboard's right-side power **(+)** rail
+* Connect the other end to the breadboard's right side power rail **(+)**
 
 ![Add 1K Resistor](../images/03/08_add_1K_resistor.png)
 ---
@@ -131,9 +128,9 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 
 ## Step 11: Connect the First LED (1 of 2) to Rectifier Diode #1 and to Ground Rail (-)
 
-* Connect the LED's positive, long leg (anode) to the terminating row of rectifier #1 from Step 10.
+* Connect the LED's positive, long leg (anode) to the terminating row of rectifier #1 from Step 10
 
-* Connect the LED's negative, short leg (cathode) to the breadboard's blue ground **(-)** rail.
+* Connect the LED's negative, short leg (cathode) to the breadboard's blue ground rail **(-)**
     
 ![Add LED 1](../images/03/11_add_led_1.png)
 ---
@@ -161,10 +158,9 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 
 ## Step 14: Connect the Second LED (2 of 2) to Rectifier Diode #2 and to Power Rail (+)
 
-* Connect the LED's negative, short leg (cathode) to the terminating row of rectifier #2 from Step 13.
+* Connect the LED's negative, short leg (cathode) to the terminating row of rectifier #2 from Step 13
 
-* Connect the LED's positive, long leg (anode) to the red power **(+)** rail on the right side of the
-  breadboard
+* Connect the LED's positive, long leg (anode) to the right side power rail **(+)**
 
 ![Add LED 2](../images/03/14_add_led_2.png)
 ---
@@ -175,10 +171,10 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
   10 rows below the 555 chip
 
 * Use a long jumper wire to connect the 555's **THRESHOLD** pin **[6]** to an empty row that is two
-  rows ABOVE the jumper from the previous step (closer to the 555)
+  rows **ABOVE** the jumper from the previous step (closer to the 555)
 
 * Use another long jumper wire to connect the 555's **THRESHOLD** pin **[6]** with an empty row
-  that is two rows ABOVE the jumper from the previous step
+  that is two rows **ABOVE** the jumper from the previous step
 
 ![Add Jumpers for the POT](../images/03/17_add_p6_jumper_to_pot_p1.png)
 ---
@@ -187,7 +183,7 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 
 * Carefully insert the three pins of the 10K potentiometer into the three terminating rows from the previous step
 
-* The 3 long jumper wires and the 3 pins of the potentiometer should occupy the same rows, with the rotating knob of the  potentiometer pointing to the right
+* The 3 long jumper wires and the 3 pins of the potentiometer should occupy the same rows, with the rotating knob of the potentiometer pointing to the right
 
 ![Add 10K POT](../images/03/18_add_pot.png)
 ---
@@ -205,4 +201,4 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 # The Finished Circuit!
 
 ![Finished](../images/03/21_Finished.png)
-  
+
