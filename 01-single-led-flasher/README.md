@@ -104,9 +104,9 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 ## Step 9: Connect 470K Ohm Resistor to 555's DISCHARGE [7] and THRESHOLD [6] pins
 
-* Connect one end of the 100K ohm resistor to the 555's **DISCHARGE** pin **[7]**
+* Connect one end of the 470K ohm resistor to the 555's **DISCHARGE [7]** pin
 
-* Connect the other end to the breadboard's right side power rail **(+)**
+* Connect the other end to the 555's **THRESHOLD [6]** pin 
 
 ![Add 470K Resistor](../images/02/add_470K_resistor.jpg)
 ---
