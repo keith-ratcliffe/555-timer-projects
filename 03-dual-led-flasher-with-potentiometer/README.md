@@ -25,7 +25,7 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 ` ** ` Standard non-polarized resistor. That is, it doesn't matter which direction current flows through the resistors, so it won't matter how you connect them
 
 The capacitor, LEDs, and rectifier diodes *are* polarized, so you'll need to identify their positive (+)
-and negative (-) terminal wires, and ensure that current flows through them in the correct direction. The build
+and negative (-) lead wires, and ensure that current flows through them in the correct direction. The build
 steps below will explain how to identify and properly connect them in the circuit.
 
 ### Optional Parts

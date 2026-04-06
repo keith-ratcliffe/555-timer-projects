@@ -24,7 +24,7 @@ This project demonstrates how to build a simple 555 timer circuit with one flash
 ` ** ` Standard non-polarized resistor. That is, it doesn't matter which direction current flows through the resistor, so it won't matter how you connect it
 
 The capacitor and LED *are* polarized, so you'll need to identify their positive (+)
-and negative (-) terminal wires to ensure that current flows through them in the
+and negative (-) lead wires to ensure that current flows through them in the
 correct direction. The build steps below will explain how to identify and properly
 connect them in the circuit.
 
