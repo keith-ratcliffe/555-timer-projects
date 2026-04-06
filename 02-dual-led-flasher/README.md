@@ -21,7 +21,7 @@ This project demonstrates how to build a simple 555 timer circuit with two flash
 
 ` * ` Four short jumper wires, each 2-inches or less
 
-` ** ` Standard non-polarized resistor. That is, it dosen't matter which direction current flows through the resistor, so it won't matter how you connect it
+` ** ` Standard non-polarized resistor. That is, it doesn't matter which direction current flows through the resistor, so it won't matter how you connect it
 
 The capacitor and LEDs *are* polarized, so you'll need to identify their positive (+)
 and negative (-) terminal wires to ensure that current flows through them in the
@@ -88,7 +88,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * Connect the capacitor's positive pole (long leg, "anode") to the 555's **TRIGGER** pin **[2]**
    
-* Connect the capacitor's negative pole (short leg, "cathode") to the left side ground rail **(-)**
+* Connect the capacitor's negative pole (short leg, "cathode") to the left-side ground rail **(-)**
 
 ![Add 1uF capacitor](../images/common/add_capacitor.jpg)
 ---
@@ -97,7 +97,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * Connect one end of the 100K ohm resistor to the 555's **DISCHARGE [7]** pin
 
-* Connect the other end to the breadboard's right side power rail **(+)**
+* Connect the other end to the breadboard's right-side power rail **(+)**
 
 ![Add 100K Resistor](../images/02/add_100K_resistor.jpg)
 ---
@@ -157,6 +157,6 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 ![Add 9V Ground](../images/common/add_gnd_to_neg_rail.jpg)
 ---
 
-# The Finished Circuit!
+## The Finished Circuit!
 
 ![Finished](../images/02/Finished_02.jpg)

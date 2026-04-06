@@ -54,7 +54,7 @@ def _build_styles():
         'h1': ParagraphStyle(
             'h1', parent=base['Heading1'], fontSize=20, spaceAfter=10, spaceBefore=14),
         'h2': ParagraphStyle(
-            'h2', parent=base['Heading2'], fontSize=15, spaceAfter=8, spaceBefore=10),
+            'h2', parent=base['Heading2'], fontSize=14, spaceAfter=8, spaceBefore=10),
         'h3': ParagraphStyle(
             'h3', parent=base['Heading3'], fontSize=12, spaceAfter=6, spaceBefore=8),
         'normal': ParagraphStyle(

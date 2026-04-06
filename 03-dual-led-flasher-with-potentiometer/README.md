@@ -1,6 +1,6 @@
 # Dual LED Flasher with Rotary Potentiometer
 
-This project demonstrates how to build a 555 timer circuit with dual flashing LEDs and utilizing a rotary potentiomenter for modifying LED flash frequency
+This project demonstrates how to build a 555 timer circuit with dual flashing LEDs that uses a rotary potentiometer to control how fast the LEDs flash
 
 # Parts List
 
@@ -22,7 +22,7 @@ This project demonstrates how to build a 555 timer circuit with dual flashing LE
 
 ` * ` Jumper wire lengths don't need to be precise, but the following should suffice (*your mileage may vary*): **Two** 1-inch wires ("short"), **Two** 2-inch wires ("medium"), **Three** 3-inch wires ("long")
 
-` ** ` Standard non-polarized resistor. That is, it dosen't matter which direction current flows through the resistors, so it won't matter how you connect them
+` ** ` Standard non-polarized resistor. That is, it doesn't matter which direction current flows through the resistors, so it won't matter how you connect them
 
 The capacitor, LEDs, and rectifier diodes *are* polarized, so you'll need to identify their positive (+)
 and negative (-) terminal wires, and ensure that current flows through them in the correct direction. The build
@@ -88,7 +88,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * Connect the capacitor's positive pole (long leg, "anode") to the 555's **TRIGGER** pin **[2]**
    
-* Connect the capacitor's negative pole (short leg, "cathode") to the left side ground rail **(-)**
+* Connect the capacitor's negative pole (short leg, "cathode") to the left-side ground rail **(-)**
 
 ![Add 100uF capacitor](../images/common/add_capacitor.jpg)
 ---
@@ -97,7 +97,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * Connect one end of the 1K ohm resistor to the 555's **DISCHARGE** pin **[7]**
 
-* Connect the other end to the breadboard's right side power rail **(+)**
+* Connect the other end to the breadboard's right-side power rail **(+)**
 
 ![Add 1K Resistor](../images/03/add_1K_resistor.jpg)
 ---
@@ -149,7 +149,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * Connect the positive **(+)** pole of the rectifier to an empty row down below, but this time connect
   it to an empty row over on the right side of the breadboard (somewhere near the bottom), so that the
-  rectifier is spanning across the the wide center channel of the breadboard       
+  rectifier is spanning across the wide center channel of the breadboard       
 
 ![Add Rectifier 2](../images/03/add_rectifier_2.jpg)
 ---
@@ -158,7 +158,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * Connect the LED's negative, short leg (cathode) to the terminating row of rectifier #2 from Step 13
 
-* Connect the LED's positive, long leg (anode) to the right side power rail **(+)**
+* Connect the LED's positive, long leg (anode) to the right-side power rail **(+)**
 
 ![Add LED 2](../images/03/add_led_2.jpg)
 ---
