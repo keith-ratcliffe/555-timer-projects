@@ -70,14 +70,14 @@ Use a short jumper wire to connect the 555's **GND** pin **[1]** to the breadboa
 ![Connect GND to Ground Rail](../images/common/add_gnd_jumper.jpg)
 ---
 
-## Step 5: Connect 555's TRIGGER [2] and THRESHOLD [6] pins
+## Step 5: Connect 555's TRIGGER [2] and THRESHOLD [6]
 
 Use a medium jumper wire to connect the 555's **TRIGGER** pin **[2]** and **THRESHOLD** pin **[6]**
 
 ![Connect 2 to 6](../images/common/add_2_to_6_jumper.jpg)
 ---
 
-## Step 6: Connect 555's RESET [4] and VCC [8] pins
+## Step 6: Connect 555's RESET [4] and VCC [8]
 
 Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **VCC** pin **[8]**
 
@@ -95,14 +95,14 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 ## Step 8: Connect 100K Ohm Resistor to 555's DISCHARGE [7] and Power Rail (+)
 
-* Connect one end of the 100K ohm resistor to the 555's **DISCHARGE** pin **[7]**
+* Connect one end of the 100K ohm resistor to the 555's **DISCHARGE [7]** pin
 
 * Connect the other end to the breadboard's right side power rail **(+)**
 
 ![Add 100K Resistor](../images/02/add_100K_resistor.jpg)
 ---
 
-## Step 9: Connect 470K Ohm Resistor to 555's DISCHARGE [7] and THRESHOLD [6] pins
+## Step 9: Connect 470K Ohm Resistor to 555's DISCHARGE [7] and THRESHOLD [6]
 
 * Connect one end of the 470K ohm resistor to the 555's **DISCHARGE [7]** pin
 
@@ -120,7 +120,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 ![Add 270 Resistor 1](../images/02/add_270_resistor_1.jpg)
 ---
 
-## Step 11: Connect LED (1 of 2) to 270 Ohm Resistor #1 and to Ground Rail (-)
+## Step 11: Connect LED #1 to 270 Ohm Resistor #1 and to Ground Rail (-)
 
 * Connect the LED's positive, long leg (anode) to the terminating row of the 270 Ohm resistor from Step 10
 
