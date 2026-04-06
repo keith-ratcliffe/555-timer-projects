@@ -140,7 +140,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 ## Step 13: Connect LED (2 of 2) to 270 Ohm Resistor #2 and to Ground Rail (-)
 
-* Connect the LED's positive, long leg (anode) to the terminating row of the 270 Ohm resistor from Step 10
+* Connect the LED's positive, long leg (anode) to the terminating row of the 2nd 270 Ohm resistor from Step 12
 
 * Connect the LED's negative, short leg (cathode) to the breadboard's blue ground rail **(-)**
     
