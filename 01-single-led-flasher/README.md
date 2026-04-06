@@ -143,6 +143,3 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 ![Finished](../images/01/Finished.jpg)
 
-# The Finished Circuit!
-
-![Finished](../images/02/Finished_02.jpg)
