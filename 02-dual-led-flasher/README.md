@@ -1,4 +1,4 @@
-# Single LED Flasher
+# Dual-LED Flasher
 
 This project demonstrates how to build a simple 555 timer circuit with a single flashing LED
 
@@ -16,8 +16,8 @@ This project demonstrates how to build a simple 555 timer circuit with a single 
 |  1    | 1uF Electrolytic Capacitor | [Amazon](https://www.amazon.com/dp/B0F8C4BBNT) |
 |  1    | ` ** ` 100K Ohm Resistor | [Amazon](https://www.amazon.com/dp/B0B4JDHXC9) |
 |  1    | ` ** ` 470K Ohm Resistor | [Amazon](https://www.amazon.com/dp/B07HDGJDVS) |
-|  1    | ` ** ` 270 Ohm Resistor | [Amazon](https://www.amazon.com/dp/B07QG1VDJ9) |
-|  1    | Light-Emitting Diode (LED) | [Amazon](https://www.amazon.com/dp/B0G4LV2DZ6) |
+|  2    | ` ** ` 270 Ohm Resistor | [Amazon](https://www.amazon.com/dp/B07QG1VDJ9) |
+|  2    | Light-Emitting Diode (LED) | [Amazon](https://www.amazon.com/dp/B0G4LV2DZ6) |
 
 ` * ` Three short jumper wires, 2-inches or less
 
@@ -38,7 +38,7 @@ connect them in the circuit.
 
 Place the breadboard on a flat surface, and orient it so that Row 1 is at the top from your point of view
 
-![Orient Breadboard](../images/03/01_breadboard.png)
+![Orient Breadboard](../images/common/breadboard.png)
 ---
 
 ## Step 2: Add the 555 Chip
@@ -53,33 +53,110 @@ Place the breadboard on a flat surface, and orient it so that Row 1 is at the to
 
 * Anywhere between row 5 and row 11 should be fine
 
-![555 Placement](../images/03/02_add_555.png)
+![555 Placement](../images/common/add_555.png)
 ---
 
 ## Step 3: Connect 555's VCC [8] to Breadboard's Power Rail (+)
 
 Use a short jumper wire to connect the 555's **VCC** pin **[8]** to the breadboard's red power rail **(+)**
 
-![Connect VCC to Power Rail](../images/03/03_add_vcc_jumper.png)
+![Connect VCC to Power Rail](../images/common/add_vcc_jumper.png)
 ---
 
 ## Step 4: Connect 555's GND [1] to Breadboard's Ground Rail (-)
 
 Use a short jumper wire to connect the 555's **GND** pin **[1]** to the breadboard's blue ground rail **(-)**
 
-![Connect GND to Ground Rail](../images/03/04_add_gnd_jumper.png)
+![Connect GND to Ground Rail](../images/common/add_gnd_jumper.png)
 ---
 
 ## Step 5: Connect 555's TRIGGER [2] and THRESHOLD [6] pins
 
 Use a medium jumper wire to connect the 555's **TRIGGER** pin **[2]** and **THRESHOLD** pin **[6]**
 
-![Connect 2 to 6](../images/03/05_add_2_to_6_jumper.png)
+![Connect 2 to 6](../images/common/add_2_to_6_jumper.png)
 ---
 
 ## Step 6: Connect 555's RESET [4] and VCC [8] pins
 
 Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **VCC** pin **[8]**
 
-![Connect 4 to 8](../images/03/06_add_4_to_8_jumper.png)
+![Connect 4 to 8](../images/common/add_4_to_8_jumper.png)
 ---
+
+## Step 7: Connect 1uF Capacitor to 555's TRIGGER [2] and Ground Rail (-)
+
+* Connect the capacitor's positive pole (long leg, "anode") to the 555's **TRIGGER** pin **[2]**
+   
+* Connect the capacitor's negative pole (short leg, "cathode") to the left side ground rail **(-)**
+
+![Add 1uF capacitor](../images/common/add_capacitor.png)
+---
+
+## Step 8: Connect 100K Ohm Resistor to 555's DISCHARGE [7] and Power Rail (+)
+
+* Connect one end of the 100K ohm resistor to the 555's **DISCHARGE** pin **[7]**
+
+* Connect the other end to the breadboard's right side power rail **(+)**
+
+![Add 100K Resistor](../images/02/add_100K_resistor.png)
+---
+
+## Step 9: Connect 470K Ohm Resistor to 555's DISCHARGE [7] and THRESHOLD [6] pins
+
+* Connect one end of the 100K ohm resistor to the 555's **DISCHARGE** pin **[7]**
+
+* Connect the other end to the breadboard's right side power rail **(+)**
+
+![Add 100K Resistor](../images/02/add_100K_resistor.png)
+---
+
+## Step 10: Connect the first 270 Ohm Resistor (1 of 2) to 555's OUTPUT [3]
+
+* Connect one end of the **270 ohm resistor** to the 555's **OUTPUT** pin **[3]**
+
+* Connect the other end to any **empty row** that is 5 or more rows below the 555 chip
+
+![Add 270 Resistor 1](../images/02/add_270_resistor_1.png)
+---
+
+## Step 11: Connect LED (1 of 2) to 270 Ohm Resistor (1 of 2) and to Ground Rail (-)
+
+* Connect the LED's positive, long leg (anode) to the terminating row of the 270 Ohm resistor from Step 10
+
+* Connect the LED's negative, short leg (cathode) to the breadboard's blue ground rail **(-)**
+    
+![Add LED 1](../images/02/add_led_1.png)
+---
+
+## Step 12: Connect the second 270 Ohm Resistor (2 of 2) to 555's OUTPUT [3]
+
+* Connect one end of the **270 ohm resistor** to the 555's **OUTPUT** pin **[3]**
+
+* Connect the other end to any **empty row** that is 5 or more rows below the 555 chip
+
+![Add 270 Resistor 2](../images/02/add_270_resistor_2.png)
+---
+
+## Step 13: Connect LED (2 of 2) to 270 Ohm Resistor (2 of 2) and to Ground Rail (-)
+
+* Connect the LED's positive, long leg (anode) to the terminating row of the 270 Ohm resistor from Step 10
+
+* Connect the LED's negative, short leg (cathode) to the breadboard's blue ground rail **(-)**
+    
+![Add LED 1](../images/02/add_led_2.png)
+---
+
+## Step 14: Connect 9-Volt Battery's Positive Wire to the Breadboard's Power (+) Rail
+
+![Add 9V Power](../images/common/add_pwr_to_plus_rail.png)
+---
+
+## Step 15: Connect 9-Volt Battery's Negative Wire to the Breadboard's Ground (-) Rail
+
+![Add 9V Ground](../images/common/add_gnd_to_neg_rail.png)
+---
+
+# The Finished Circuit!
+
+![Finished](../images/02/Finished.png)
