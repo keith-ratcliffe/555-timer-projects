@@ -70,7 +70,7 @@ Use a short jumper wire to connect the 555's **GND** pin **[1]** to the breadboa
 ![Connect GND to Ground Rail](../images/common/add_gnd_jumper.jpg)
 ---
 
-## Step 5: Connect 555's TRIGGER [2] and THRESHOLD [6] pins
+## Step 5: Connect 555's TRIGGER [2] and THRESHOLD [6]
 
 Use a medium jumper wire to connect the 555's **TRIGGER** pin **[2]** and **THRESHOLD** pin **[6]**
 
