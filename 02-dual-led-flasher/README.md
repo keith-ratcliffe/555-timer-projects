@@ -108,7 +108,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * Connect the other end to the breadboard's right side power rail **(+)**
 
-![Add 100K Resistor](../images/02/add_100K_resistor.png)
+![Add 470K Resistor](../images/02/add_470K_resistor.png)
 ---
 
 ## Step 10: Connect the first 270 Ohm Resistor (1 of 2) to 555's OUTPUT [3]
@@ -144,7 +144,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * Connect the LED's negative, short leg (cathode) to the breadboard's blue ground rail **(-)**
     
-![Add LED 1](../images/02/add_led_2.png)
+![Add LED 2](../images/02/add_led_2.png)
 ---
 
 ## Step 14: Connect 9-Volt Battery's Positive Wire to the Breadboard's Power (+) Rail
