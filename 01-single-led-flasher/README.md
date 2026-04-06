@@ -139,7 +139,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 ![Add 9V Ground](../images/common/add_gnd_to_neg_rail.png)
 ---
 
-## Finished Circuit!
+## The Finished Circuit!
 
 ![Finished](../images/01/Finished.jpg)
 
