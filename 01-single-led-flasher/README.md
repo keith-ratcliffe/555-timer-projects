@@ -38,7 +38,7 @@ connect them in the circuit.
 
 Place the breadboard on a flat surface, and orient it so that Row 1 is at the top from your point of view
 
-![Orient Breadboard](../images/common/orient_breadboard.png)
+![Orient Breadboard](../images/common/orient_breadboard.jpg)
 ---
 
 ## Step 2: Add the 555 Chip
@@ -53,35 +53,35 @@ Place the breadboard on a flat surface, and orient it so that Row 1 is at the to
 
 * Anywhere between row 5 and row 11 should be fine
 
-![555 Placement](../images/common/add_555.png)
+![555 Placement](../images/common/add_555.jpg)
 ---
 
 ## Step 3: Connect 555's VCC [8] to Breadboard's Power Rail (+)
 
 Use a short jumper wire to connect the 555's **VCC** pin **[8]** to the breadboard's red power rail **(+)**
 
-![Connect VCC to Power Rail](../images/common/add_vcc_jumper.png)
+![Connect VCC to Power Rail](../images/common/add_vcc_jumper.jpg)
 ---
 
 ## Step 4: Connect 555's GND [1] to Breadboard's Ground Rail (-)
 
 Use a short jumper wire to connect the 555's **GND** pin **[1]** to the breadboard's blue ground rail **(-)**
 
-![Connect GND to Ground Rail](../images/common/add_gnd_jumper.png)
+![Connect GND to Ground Rail](../images/common/add_gnd_jumper.jpg)
 ---
 
 ## Step 5: Connect 555's TRIGGER [2] and THRESHOLD [6] pins
 
 Use a medium jumper wire to connect the 555's **TRIGGER** pin **[2]** and **THRESHOLD** pin **[6]**
 
-![Connect 2 to 6](../images/common/add_2_to_6_jumper.png)
+![Connect 2 to 6](../images/common/add_2_to_6_jumper.jpg)
 ---
 
 ## Step 6: Connect 555's RESET [4] and VCC [8] pins
 
 Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **VCC** pin **[8]**
 
-![Connect 4 to 8](../images/common/add_4_to_8_jumper.png)
+![Connect 4 to 8](../images/common/add_4_to_8_jumper.jpg)
 ---
 
 ## Step 7: Connect 1uF Capacitor to 555's TRIGGER [2] and Ground Rail (-)
@@ -90,7 +90,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
    
 * Connect the capacitor's negative pole (short leg, "cathode") to the left side ground rail **(-)**
 
-![Add 1uF capacitor](../images/common/add_capacitor.png)
+![Add 1uF capacitor](../images/common/add_capacitor.jpg)
 ---
 
 ## Step 8: Connect 100K Ohm Resistor to 555's DISCHARGE [7] and Power Rail (+)
@@ -131,12 +131,12 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 ## Step 12: Connect 9-Volt Battery's Positive Wire to the Breadboard's Power (+) Rail
 
-![Add 9V Power](../images/common/add_pwr_to_plus_rail.png)
+![Add 9V Power](../images/common/add_pwr_to_plus_rail.jpg)
 ---
 
 ## Step 13: Connect 9-Volt Battery's Negative Wire to the Breadboard's Ground (-) Rail
 
-![Add 9V Ground](../images/common/add_gnd_to_neg_rail.png)
+![Add 9V Ground](../images/common/add_gnd_to_neg_rail.jpg)
 ---
 
 ## The Finished Circuit!

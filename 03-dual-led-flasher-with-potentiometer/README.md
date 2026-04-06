@@ -38,7 +38,7 @@ steps below will explain how to identify and properly connect them in the circui
 
 Place the breadboard on a flat surface, and orient it so that Row 1 is at the top from your point of view
 
-![Orient Breadboard](../images/common/orient_breadboard.png)
+![Orient Breadboard](../images/common/orient_breadboard.jpg)
 ---
 
 ## Step 2: Add the 555 Chip
@@ -53,35 +53,35 @@ Place the breadboard on a flat surface, and orient it so that Row 1 is at the to
 
 * Anywhere between row 5 and row 11 should be fine
 
-![555 Placement](../images/common/add_555.png)
+![555 Placement](../images/common/add_555.jpg)
 ---
 
 ## Step 3: Connect 555's VCC [8] to Breadboard's Power Rail (+)
 
 Use a short jumper wire to connect the 555's **VCC** pin **[8]** to the breadboard's red power rail **(+)**
 
-![Connect VCC to Power Rail](../images/common/add_vcc_jumper.png)
+![Connect VCC to Power Rail](../images/common/add_vcc_jumper.jpg)
 ---
 
 ## Step 4: Connect 555's GND [1] to Breadboard's Ground Rail (-)
 
 Use a short jumper wire to connect the 555's **GND** pin **[1]** to the breadboard's blue ground rail **(-)**
 
-![Connect GND to Ground Rail](../images/common/add_gnd_jumper.png)
+![Connect GND to Ground Rail](../images/common/add_gnd_jumper.jpg)
 ---
 
 ## Step 5: Connect 555's TRIGGER [2] and THRESHOLD [6] pins
 
 Use a medium jumper wire to connect the 555's **TRIGGER** pin **[2]** and **THRESHOLD** pin **[6]**
 
-![Connect 2 to 6](../images/common/add_2_to_6_jumper.png)
+![Connect 2 to 6](../images/common/add_2_to_6_jumper.jpg)
 ---
 
 ## Step 6: Connect 555's RESET [4] and VCC [8] pins
 
 Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **VCC** pin **[8]**
 
-![Connect 4 to 8](../images/common/add_4_to_8_jumper.png)
+![Connect 4 to 8](../images/common/add_4_to_8_jumper.jpg)
 ---
 
 ## Step 7: Connect 100uF Capacitor to 555's TRIGGER [2] and Ground Rail (-)
@@ -90,7 +90,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
    
 * Connect the capacitor's negative pole (short leg, "cathode") to the left side ground rail **(-)**
 
-![Add 100uF capacitor](../images/common/add_capacitor.png)
+![Add 100uF capacitor](../images/common/add_capacitor.jpg)
 ---
 
 ## Step 8: Connect 1K Ohm Resistor to 555's DISCHARGE [7] and Power Rail (+)
@@ -99,7 +99,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * Connect the other end to the breadboard's right side power rail **(+)**
 
-![Add 1K Resistor](../images/03/add_1K_resistor.png)
+![Add 1K Resistor](../images/03/add_1K_resistor.jpg)
 ---
 
 ## Step 9: Connect the First 270 Ohm Resistor (1 of 2) to 555's OUTPUT [3]
@@ -108,7 +108,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * Connect the other end to an **empty row** that is 5 or more rows below the 555 chip
 
-![Add 270 Resistor 1](../images/03/add_270_resistor_1.png)
+![Add 270 Resistor 1](../images/03/add_270_resistor_1.jpg)
 ---
 
 ## Step 10: Connect the First Rectifier Diode (1 of 2) to 270 Ohm Resistor #1
@@ -121,7 +121,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * Connect the negative **(-)**, silver-striped pole to an empty row down below
 
-![Add Rectifier 1](../images/03/add_rectifier_1.png)
+![Add Rectifier 1](../images/03/add_rectifier_1.jpg)
 ---
 
 ## Step 11: Connect the First LED (1 of 2) to Rectifier Diode #1 and to Ground Rail (-)
@@ -130,7 +130,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * Connect the LED's negative, short leg (cathode) to the breadboard's blue ground rail **(-)**
     
-![Add LED 1](../images/03/add_led_1.png)
+![Add LED 1](../images/03/add_led_1.jpg)
 ---
 
 ## Step 12: Connect the Second 270 Ohm Resistor (2 of 2) to 555's OUTPUT [3]
@@ -139,7 +139,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * As before, connect the other end of the resistor to an **empty row** below the 555 chip
 
-![Add 270 Resistor 2](../images/03/add_270_resistor_2.png)
+![Add 270 Resistor 2](../images/03/add_270_resistor_2.jpg)
 ---
 
 ## Step 13: Connect the Second Rectifier Diode (2 of 2) to 270 Ohm Resistor #2
@@ -151,7 +151,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
   it to an empty row over on the right side of the breadboard (somewhere near the bottom), so that the
   rectifier is spanning across the the wide center channel of the breadboard       
 
-![Add Rectifier 2](../images/03/add_rectifier_2.png)
+![Add Rectifier 2](../images/03/add_rectifier_2.jpg)
 ---
 
 ## Step 14: Connect the Second LED (2 of 2) to Rectifier Diode #2 and to Power Rail (+)
@@ -160,7 +160,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * Connect the LED's positive, long leg (anode) to the right side power rail **(+)**
 
-![Add LED 2](../images/03/add_led_2.png)
+![Add LED 2](../images/03/add_led_2.jpg)
 ---
 
 ## Step 15: Add Jumper Wires in Preparation for the 10K Potentiometer
@@ -174,7 +174,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 * Use another long jumper wire to connect the 555's **THRESHOLD** pin **[6]** with an empty row
   that is two rows **ABOVE** the jumper from the previous step
 
-![Add Jumpers for the POT](../images/03/add_p6_jumper_to_pot_p1.png)
+![Add Jumpers for the POT](../images/03/add_p6_jumper_to_pot_p1.jpg)
 ---
 
 ## Step 16: Connect the 10K Potentiometer
@@ -183,20 +183,20 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * The 3 long jumper wires and the 3 pins of the potentiometer should occupy the same rows, with the rotating knob of the potentiometer pointing to the right
 
-![Add 10K POT](../images/03/add_pot.png)
+![Add 10K POT](../images/03/add_pot.jpg)
 ---
 
 ## Step 17: Connect 9-Volt Battery's Positive Wire to the Breadboard's Power (+) Rail
 
-![Add 9V Power](../images/common/add_pwr_to_plus_rail.png)
+![Add 9V Power](../images/common/add_pwr_to_plus_rail.jpg)
 ---
 
 ## Step 18: Connect 9-Volt Battery's Negative Wire to the Breadboard's Ground (-) Rail
 
-![Add 9V Ground](../images/common/add_gnd_to_neg_rail.png)
+![Add 9V Ground](../images/common/add_gnd_to_neg_rail.jpg)
 ---
 
 # The Finished Circuit!
 
-![Finished](../images/03/Finished.png)
+![Finished](../images/03/Finished.jpg)
 

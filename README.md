@@ -4,10 +4,10 @@ Here, you'll find a few simple projects for learning about electronics, all cent
 extremely popular 555 timer integrated circuit or "chip"
 
 
-![555](images/555-01.png)
+![555](images/555-01.jpg)
 
 
-![555 Pinout](images/555-pinout.png)
+![555 Pinout](images/555-pinout.jpg)
 
 
 ![555 "Square Wave" Illustration](images/square-wave-generator.jpg)
