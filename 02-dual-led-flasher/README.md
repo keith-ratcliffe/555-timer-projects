@@ -11,7 +11,7 @@ This project demonstrates how to build a simple 555 timer circuit with a single 
 |  1    | 9-Volt Battery | |
 |  1    | 9-Volt Battery Wiring Harness | [Amazon](https://www.amazon.com/dp/B07YBZ18VS) |
 |  1    | Breadboard | [Amazon](https://www.amazon.com/dp/B07LFD4LT6) |
-|  3    | ` * ` Jumper Wires | [Amazon](https://www.amazon.com/dp/B08YRGVYPV) |
+|  4    | ` * ` Jumper Wires | [Amazon](https://www.amazon.com/dp/B08YRGVYPV) |
 |  1    | 555 Timer Chip | [Amazon](https://www.amazon.com/dp/B0CBKFMWDP) |
 |  1    | 1uF Electrolytic Capacitor | [Amazon](https://www.amazon.com/dp/B0F8C4BBNT) |
 |  1    | ` ** ` 100K Ohm Resistor | [Amazon](https://www.amazon.com/dp/B0B4JDHXC9) |
@@ -19,7 +19,7 @@ This project demonstrates how to build a simple 555 timer circuit with a single 
 |  2    | ` ** ` 270 Ohm Resistor | [Amazon](https://www.amazon.com/dp/B07QG1VDJ9) |
 |  2    | Light-Emitting Diode (LED) | [Amazon](https://www.amazon.com/dp/B0G4LV2DZ6) |
 
-` * ` Three short jumper wires, 2-inches or less
+` * ` Four short jumper wires, each 2-inches or less
 
 ` ** ` Standard non-polarized resistor. That is, it dosen't matter which direction current flows through the resistors, so it won't matter how you connect them
 
