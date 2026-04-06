@@ -1,6 +1,6 @@
-# Dual-LED Flasher
+# Dual-LED Flasher Circuit
 
-This project demonstrates how to build a simple 555 timer circuit with a single flashing LED
+This project demonstrates how to build a simple 555 timer circuit with two flashing LEDs, both flashing at the same rate
 
 # Parts List
 
@@ -21,10 +21,10 @@ This project demonstrates how to build a simple 555 timer circuit with a single 
 
 ` * ` Four short jumper wires, each 2-inches or less
 
-` ** ` Standard non-polarized resistor. That is, it dosen't matter which direction current flows through the resistors, so it won't matter how you connect them
+` ** ` Standard non-polarized resistor. That is, it dosen't matter which direction current flows through the resistor, so it won't matter how you connect it
 
-The capacitor and LED *are* polarized, so you'll need to identify their positive (+)
-and negative (-) terminal wires, and ensure that current flows through them in the
+The capacitor and LEDs *are* polarized, so you'll need to identify their positive (+)
+and negative (-) terminal wires to ensure that current flows through them in the
 correct direction. The build steps below will explain how to identify and properly
 connect them in the circuit.
 
