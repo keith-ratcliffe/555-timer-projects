@@ -38,7 +38,7 @@ from reportlab.platypus import (
 
 REPO_ROOT = Path(__file__).parent.parent
 
-PAGE_W = letter[0] - 2 * inch   # usable text width
+PAGE_W = letter[0] - inch        # usable text width (0.5in left + right margins)
 PAGE_H = letter[1] - 2 * inch   # usable page height
 # Leave ~2 inches for the step heading + bullet text above the image.
 _IMG_MAX_DRAW_H = PAGE_H - 2 * inch
@@ -491,8 +491,8 @@ def generate_pdf(project_num):
     doc = SimpleDocTemplate(
         str(pdf_path),
         pagesize=letter,
-        leftMargin=inch,
-        rightMargin=inch,
+        leftMargin=0.5*inch,
+        rightMargin=0.5*inch,
         topMargin=inch,
         bottomMargin=inch,
         title=project_dir.name,
