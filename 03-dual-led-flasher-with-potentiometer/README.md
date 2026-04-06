@@ -99,7 +99,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * Connect the other end to the breadboard's right side power rail **(+)**
 
-![Add 1K Resistor](../images/03/08_add_1K_resistor.png)
+![Add 1K Resistor](../images/03/add_1K_resistor.png)
 ---
 
 ## Step 9: Connect the First 270 Ohm Resistor (1 of 2) to 555's OUTPUT [3]
@@ -108,7 +108,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * Connect the other end to an **empty row** that is 5 or more rows below the 555 chip
 
-![Add 270 Resistor 1](../images/03/09_add_270_resistor_1.png)
+![Add 270 Resistor 1](../images/03/add_270_resistor_1.png)
 ---
 
 ## Step 10: Connect the First Rectifier Diode (1 of 2) to 270 Ohm Resistor #1
@@ -121,7 +121,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * Connect the negative **(-)**, silver-striped pole to an empty row down below
 
-![Add Rectifier 1](../images/03/10_add_rectifier_1.png)
+![Add Rectifier 1](../images/03/add_rectifier_1.png)
 ---
 
 ## Step 11: Connect the First LED (1 of 2) to Rectifier Diode #1 and to Ground Rail (-)
@@ -130,7 +130,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * Connect the LED's negative, short leg (cathode) to the breadboard's blue ground rail **(-)**
     
-![Add LED 1](../images/03/11_add_led_1.png)
+![Add LED 1](../images/03/add_led_1.png)
 ---
 
 ## Step 12: Connect the Second 270 Ohm Resistor (2 of 2) to 555's OUTPUT [3]
@@ -139,7 +139,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * As before, connect the other end of the resistor to an **empty row** below the 555 chip
 
-![Add 270 Resistor 2](../images/03/12_add_270_resistor_2.png)
+![Add 270 Resistor 2](../images/03/add_270_resistor_2.png)
 ---
 
 ## Step 13: Connect the Second Rectifier Diode (2 of 2) to 270 Ohm Resistor #2
@@ -151,7 +151,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
   it to an empty row over on the right side of the breadboard (somewhere near the bottom), so that the
   rectifier is spanning across the the wide center channel of the breadboard       
 
-![Add Rectifier 2](../images/03/13_add_rectifier_2.png)
+![Add Rectifier 2](../images/03/add_rectifier_2.png)
 ---
 
 ## Step 14: Connect the Second LED (2 of 2) to Rectifier Diode #2 and to Power Rail (+)
@@ -160,7 +160,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * Connect the LED's positive, long leg (anode) to the right side power rail **(+)**
 
-![Add LED 2](../images/03/14_add_led_2.png)
+![Add LED 2](../images/03/add_led_2.png)
 ---
 
 ## Step 15: Add Jumper Wires in Preparation for the 10K Potentiometer
@@ -174,7 +174,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 * Use another long jumper wire to connect the 555's **THRESHOLD** pin **[6]** with an empty row
   that is two rows **ABOVE** the jumper from the previous step
 
-![Add Jumpers for the POT](../images/03/17_add_p6_jumper_to_pot_p1.png)
+![Add Jumpers for the POT](../images/03/add_p6_jumper_to_pot_p1.png)
 ---
 
 ## Step 16: Connect the 10K Potentiometer
@@ -183,20 +183,20 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 * The 3 long jumper wires and the 3 pins of the potentiometer should occupy the same rows, with the rotating knob of the potentiometer pointing to the right
 
-![Add 10K POT](../images/03/18_add_pot.png)
+![Add 10K POT](../images/03/add_pot.png)
 ---
 
 ## Step 17: Connect 9-Volt Battery's Positive Wire to the Breadboard's Power (+) Rail
 
-![Add 9V Power](../images/03/19_add_pwr_to_plus_rail.png)
+![Add 9V Power](../images/03/add_pwr_to_plus_rail.png)
 ---
 
 ## Step 18: Connect 9-Volt Battery's Negative Wire to the Breadboard's Ground (-) Rail
 
-![Add 9V Ground](../images/03/20_add_gnd_to_neg_rail.png)
+![Add 9V Ground](../images/03/add_gnd_to_neg_rail.png)
 ---
 
 # The Finished Circuit!
 
-![Finished](../images/03/21_Finished.png)
+![Finished](../images/03/Finished.png)
 
