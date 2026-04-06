@@ -77,7 +77,7 @@ Use a medium jumper wire to connect the 555's **TRIGGER** pin **[2]** and **THRE
 ![Connect 2 to 6](../images/common/add_2_to_6_jumper.jpg)
 ---
 
-## Step 6: Connect 555's RESET [4] and VCC [8] pins
+## Step 6: Connect 555's RESET [4] and VCC [8]
 
 Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **VCC** pin **[8]**
 
