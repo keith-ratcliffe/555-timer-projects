@@ -18,7 +18,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 import markdown
-from PIL import Image as PILImage
+from PIL import Image as PILImage, ImageOps
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_LEFT
 from reportlab.lib.pagesizes import letter
@@ -272,7 +272,7 @@ def _render_img(img_el, project_dir, styles):
         img_path = (project_dir / src).resolve()
         if img_path.exists():
             try:
-                pil = PILImage.open(img_path)
+                pil = ImageOps.exif_transpose(PILImage.open(img_path))
                 pil_w, pil_h = pil.size
 
                 # Downsample if wider than the threshold
