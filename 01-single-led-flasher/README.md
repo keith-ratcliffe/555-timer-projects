@@ -102,7 +102,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 ![Add 100K Resistor](../images/02/add_100K_resistor.jpg)
 ---
 
-## Step 9: Connect 470K Ohm Resistor to 555's DISCHARGE [7] and THRESHOLD [6] pins
+## Step 9: Connect 470K Ohm Resistor to 555's DISCHARGE [7] and THRESHOLD [6]
 
 * Connect one end of the 470K ohm resistor to the 555's **DISCHARGE [7]** pin
 
