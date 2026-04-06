@@ -38,7 +38,7 @@ connect them in the circuit.
 
 Place the breadboard on a flat surface, and orient it so that Row 1 is at the top from your point of view
 
-![Orient Breadboard](../images/common/breadboard.png)
+![Orient Breadboard](../images/common/orient_breadboard.png)
 ---
 
 ## Step 2: Add the 555 Chip
