@@ -188,12 +188,12 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 
 ## Step 17: Connect 9-Volt Battery's Positive Wire to the Breadboard's Power (+) Rail
 
-![Add 9V Power](../images/03/add_pwr_to_plus_rail.png)
+![Add 9V Power](../images/common/add_pwr_to_plus_rail.png)
 ---
 
 ## Step 18: Connect 9-Volt Battery's Negative Wire to the Breadboard's Ground (-) Rail
 
-![Add 9V Ground](../images/03/add_gnd_to_neg_rail.png)
+![Add 9V Ground](../images/common/add_gnd_to_neg_rail.png)
 ---
 
 # The Finished Circuit!
