@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate a standalone PDF from a 555 timer project's README.md.
+"""Generate a standalone PDF from a 555 timer project's BUILDME.md.
 
 Usage:
     python3 scripts/generate_pdf.py <project-number>
@@ -441,9 +441,9 @@ def generate_pdf(project_num):
         sys.exit(f"Error: no project directory found matching '{project_num}-*'")
     project_dir = matches[0]
 
-    readme_path = project_dir / 'README.md'
+    readme_path = project_dir / 'BUILDME.md'
     if not readme_path.exists():
-        sys.exit(f"Error: README.md not found in {project_dir}")
+        sys.exit(f"Error: BUILDME.md not found in {project_dir}")
 
     # Prepare output directory and path
     out_dir = REPO_ROOT / 'docs' / project_num
