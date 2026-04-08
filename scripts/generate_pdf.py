@@ -108,8 +108,13 @@ def _inline_text(el):
             _gather(node, tags + [tag])
             parts.append('</font>')
         elif tag == 'a':
-            # Render link text; ignore href
-            _gather(node, tags + [tag])
+            href = node.get('href', '')
+            if href:
+                parts.append(f'<a href="{href}" color="blue">')
+                _gather(node, tags + [tag])
+                parts.append('</a>')
+            else:
+                _gather(node, tags + [tag])
         elif tag == 'br':
             parts.append('<br/>')
             if node.tail:
