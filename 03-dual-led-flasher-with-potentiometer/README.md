@@ -102,7 +102,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 ![Add 1K Resistor](../images/03/add_1K_resistor.jpg)
 ---
 
-## Step 9: Connect the First 270 Ohm Resistor (1 of 2) to 555's OUTPUT [3]
+## Step 9: Connect the First 270 Ohm Resistor to 555's OUTPUT [3]
 
 * Connect one end of the **270 ohm resistor** to the 555's **OUTPUT** pin **[3]**
 
@@ -111,7 +111,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 ![Add 270 Resistor 1](../images/03/add_270_resistor_1.jpg)
 ---
 
-## Step 10: Connect the First Rectifier Diode (1 of 2) to 270 Ohm Resistor #1
+## Step 10: Connect the First Rectifier Diode to 270 Ohm Resistor #1
 
 * Look closely at the **1N4007 rectifier diode**. Note that its negative **(-)** pole (cathode) is the one 
   with the silver stripe on the rectifier's central barrel. The other pole is positive **(+)** (anode)
@@ -124,7 +124,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 ![Add Rectifier 1](../images/03/add_rectifier_1.jpg)
 ---
 
-## Step 11: Connect the First LED (1 of 2) to Rectifier Diode #1 and to Ground Rail (-)
+## Step 11: Connect the First LED to Rectifier Diode #1 and to Ground Rail (-)
 
 * Connect the LED's positive, long leg (anode) to the terminating row of rectifier #1 from Step 10
 
@@ -133,7 +133,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 ![Add LED 1](../images/03/add_led_1.jpg)
 ---
 
-## Step 12: Connect the Second 270 Ohm Resistor (2 of 2) to 555's OUTPUT [3]
+## Step 12: Connect the Second 270 Ohm Resistor to 555's OUTPUT [3]
 
 * Similar to Step 9, connect one end of the **270 ohm resistor** to the 555's **OUTPUT** pin **[3]**
 
@@ -142,7 +142,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 ![Add 270 Resistor 2](../images/03/add_270_resistor_2.jpg)
 ---
 
-## Step 13: Connect the Second Rectifier Diode (2 of 2) to 270 Ohm Resistor #2
+## Step 13: Connect the Second Rectifier Diode to 270 Ohm Resistor #2
 
 * Similar to Step 10, we need to connect **Rectifier #2** to **270 Ohm Resistor #2**, but this time
   connect the silver-striped negative **(-)** pole of the rectifier to resistor #2's terminating row
@@ -154,7 +154,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 ![Add Rectifier 2](../images/03/add_rectifier_2.jpg)
 ---
 
-## Step 14: Connect the Second LED (2 of 2) to Rectifier Diode #2 and to Power Rail (+)
+## Step 14: Connect the Second LED to Rectifier Diode #2 and to Power Rail (+)
 
 * Connect the LED's negative, short leg (cathode) to the terminating row of rectifier #2 from Step 13
 
