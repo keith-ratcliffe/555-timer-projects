@@ -111,7 +111,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 ![Add 470K Resistor](../images/02/add_470K_resistor.jpg)
 ---
 
-## Step 10: Connect the first 270 Ohm Resistor (1 of 2) to 555's OUTPUT [3]
+## Step 10: Connect the first 270 Ohm Resistor to 555's OUTPUT [3]
 
 * Connect one end of the **270 ohm resistor** to the 555's **OUTPUT** pin **[3]**
 
@@ -129,7 +129,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 ![Add LED 1](../images/02/add_led_1.jpg)
 ---
 
-## Step 12: Connect the second 270 Ohm Resistor (2 of 2) to 555's OUTPUT [3]
+## Step 12: Connect the second 270 Ohm Resistor to 555's OUTPUT [3]
 
 * Connect one end of the **270 ohm resistor** to the 555's **OUTPUT** pin **[3]**
 
@@ -138,7 +138,7 @@ Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **
 ![Add 270 Resistor 2](../images/02/add_270_resistor_2.jpg)
 ---
 
-## Step 13: Connect LED (2 of 2) to 270 Ohm Resistor #2 and to Ground Rail (-)
+## Step 13: Connect LED #2 to 270 Ohm Resistor #2 and to Ground Rail (-)
 
 * Connect the LED's positive, long leg (anode) to the terminating row of the 2nd 270 Ohm resistor from Step 12
 
