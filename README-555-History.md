@@ -8,13 +8,37 @@ The chip was released in 1972 and became one of the most successful and widely u
 Camenzind designed the circuit by hand, and he rendered the layout of the chip's internal components
 on "Rubylith" film, a common practice before computer-aided design was possible. The 555 was intended
 to be a versatile, low-cost "time machine" capable of creating precise time delays (or rather,
-voltage (V) oscillations) using a compact design with as few electronic components as possible. For this
-reason, the 555 helped to pave the way for smaller, more reliable computerized products, a trend
-that continues to be a defining goal of electronics manufacturing today.
+voltage oscillations) using a compact design with as few internal components as possible. For
+this reason, the 555 helped to pave the way for smaller more reliable products, a trend
+that has long been a defining goal in electronics manufacturing.
+
+Due to its simple and reliable design (only eight pins), it replaced more complex ICs that were prevalent
+at the time. The 555 is still used today in a wide variety of industrial, commercial and hobbyist
+applications. Around 1 billion 555s are produced and sold annually.
 
 # Why "555"?
 
-The name comes from the three resistors, 5 Ohms each, that are used inside the chip. These resistors
-are responsible for controlling the voltage (V) thresholds that drive the chip's basic functions. Due
-to its simple and reliable design (only eight pins), it replaced numerous, more complex ICs that were
-prevalent at the time, and it is still in use today.
+The name is often assumed to have come from the chip's three internal 5K-Ohm resistors, which are responsible
+for controlling the voltage (V) thresholds that drive the chip's primary functions. However, Hans Camenzind
+has refuted this, stating that the name was arbitrarily chosen by Signetics marketing manager Art Fury, making
+the resistor value a coincidence.
+
+# Common 555 Applications
+
+Due to the flexibility in its operating modes, there are literally thousands of unique 555-based circuits in
+use across industrial, commercial and hobbyist applications. Here are a few common use cases:
+
+* **Square Wave Generator/Oscillators ("Astable" mode)**: This mode of 555 operation is ideal for LED flashers,
+  buzzer drivers, clock signals, strobe lights, and any application requiring a **continuous**, oscillating
+  High/Low (On/Off) pattern of operation until powered off. This is the primary use case we'll be exploring
+  in our projects here.
+  
+* **"One-Shot" Timer ("Monostable" mode)**: This mode of operation provides a single High/Low (On/Off) cycle
+  when triggered. This mode is ideal for delayed-start timers, touch switches, and "anti-debounce" button switches
+  (i.e., a mechanical switch combined with a circuit designed to eliminate "bounce," which is the rapid, unintended
+  opening and closing of electrical contacts that occurs during a single press)
+
+* **Flip-Flop Switch ("Bistable" mode)**: In this mode, ther 555 operates as a simple "latch", acting as an
+  ON/OFF (toggle) switch to hold a state until triggered otherwise.
+
+
