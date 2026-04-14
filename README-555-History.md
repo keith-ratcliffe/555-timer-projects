@@ -44,7 +44,7 @@ contacts that can occur during a single button press)
 
 ### Flip-Flop Switch ("Bistable" mode)
 
-In this mode, the 555 operates as a simple "latch", acting as an ON/OFF (toggle) switch to hold a state until
+In this mode, the 555 operates as a simple "latch", acting as an On/Off (toggle) switch to hold a state until
 triggered otherwise. This mode is ideal for "power" buttons on electronically-controlled devices, and numerous
 other applications requiring a manually-triggered on/off state.
 
