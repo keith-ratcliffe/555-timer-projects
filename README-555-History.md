@@ -21,7 +21,7 @@ applications. Around 1 billion 555s are produced and sold annually.
 The name is often assumed to have come from the chip's three internal 5K-Ohm resistors, which are responsible
 for controlling the voltage (V) thresholds that drive the chip's primary functions. However, Hans Camenzind
 has refuted this, stating that the name was arbitrarily chosen by Signetics marketing manager Art Fury, making
-the resistor value a coincidence.
+the internal resistors purely a coincidence. Odd coincidence though, IMHO
 
 # Common 555 Applications
 
@@ -30,16 +30,16 @@ use across industrial, commercial and hobbyist applications. Here are a few comm
 
 * **Square Wave Generator/Oscillator ("Astable" mode)**: This mode of 555 operation is ideal for LED flashers,
   buzzer drivers, clock signals, strobe lights, and any application requiring an oscillating High/Low (On/Off)
-  pattern of operation that operates **continuously** until powered off. This is the primary use case we'll be
+  pattern that operates **continuously** until the circuit is powered off. This is the primary use case we'll be
   exploring in our projects here.
   
 * **"One-Shot" Timer ("Monostable" mode)**: This mode of operation provides a single High/Low (On/Off) cycle
   when triggered. This mode is ideal for delayed-start timers, touch switches, and "anti-debounce" button switches
-  (i.e., a mechanical switch combined with a circuit that is designed to eliminate "bounce," which is the rapid,
-  unintended opening and closing of electrical contacts that can occur during a single button press)
+  (i.e., a mechanical switch combined with a circuit that is designed to eliminate "bounce". Bounce in this context
+  is the rapid, unintended opening and closing of electrical contacts that can occur during a single button press)
 
 * **Flip-Flop Switch ("Bistable" mode)**: In this mode, the 555 operates as a simple "latch", acting as an
   ON/OFF (toggle) switch to hold a state until triggered otherwise. This mode is ideal for "power" buttons
-  on electronic devices and other manually-triggered on/off cycles. 
+  on electronically-controlled devices, and numerous other applications requiring a manually-triggered on/off state.
 
 
