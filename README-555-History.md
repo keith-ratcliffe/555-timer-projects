@@ -38,7 +38,7 @@ use across industrial, commercial and hobbyist applications. Here are a few comm
   (i.e., a mechanical switch combined with a circuit that is designed to eliminate "bounce," which is the rapid,
   unintended opening and closing of electrical contacts that can occur during a single button press)
 
-* **Flip-Flop Switch ("Bistable" mode)**: In this mode, ther 555 operates as a simple "latch", acting as an
+* **Flip-Flop Switch ("Bistable" mode)**: In this mode, the 555 operates as a simple "latch", acting as an
   ON/OFF (toggle) switch to hold a state until triggered otherwise. This mode is ideal for "power" buttons
   on electronic devices and other manually-triggered on/off cycles. 
 
