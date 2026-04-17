@@ -56,11 +56,11 @@ Place the breadboard on a flat surface, and orient it so that Row 1 is at the to
 ![555 Placement](../images/common/add_555.jpg)
 ---
 
-## Step 3: Connect 555's VCC [8] to Breadboard's Power Rail (+)
+## Step 3: Connect 555's Vcc [8] to Breadboard's Power Rail (+)
 
-Use a short jumper wire to connect the 555's **VCC** pin **[8]** to the breadboard's red power rail **(+)**
+Use a short jumper wire to connect the 555's **Vcc** pin **[8]** to the breadboard's red power rail **(+)**
 
-![Connect VCC to Power Rail](../images/common/add_vcc_jumper.jpg)
+![Connect Vcc to Power Rail](../images/common/add_vcc_jumper.jpg)
 ---
 
 ## Step 4: Connect 555's GND [1] to Breadboard's Ground Rail (-)
@@ -77,9 +77,9 @@ Use a medium jumper wire to connect the 555's **TRIGGER** pin **[2]** and **THRE
 ![Connect 2 to 6](../images/common/add_2_to_6_jumper.jpg)
 ---
 
-## Step 6: Connect 555's RESET [4] and VCC [8]
+## Step 6: Connect 555's RESET [4] and Vcc [8]
 
-Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **VCC** pin **[8]**
+Use another medium jumper wire to connect the 555's **RESET** pin **[4]** and **Vcc** pin **[8]**
 
 ![Connect 4 to 8](../images/common/add_4_to_8_jumper.jpg)
 ---
