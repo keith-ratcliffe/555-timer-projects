@@ -4,7 +4,7 @@ Here are a few simple projects for learning about electronics, all centered arou
 extremely popular 555 timer integrated circuit (IC)
 
 ## [History of the 555](./555-HISTORY.md)
-## [Common 555 applications](./555-APPLICATIONS.md)
+## [Common 555 Applications](./555-APPLICATIONS.md)
 
 ![555 Pinout](images/555-pinout.jpg)
 
