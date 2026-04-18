@@ -2,11 +2,11 @@
 """Generate a standalone PDF from a 555 timer project's BUILDME.md.
 
 Usage:
-    python3 scripts/generate_pdf.py <project-number>
+    python3 scripts/generate_project_pdf.py <project-number>
 
 Examples:
-    python3 scripts/generate_pdf.py 01
-    python3 scripts/generate_pdf.py 03
+    python3 scripts/generate_project_pdf.py 01
+    python3 scripts/generate_project_pdf.py 03
 
 The PDF is written to docs/<project-number>/<project-dir-name>.pdf.
 """
