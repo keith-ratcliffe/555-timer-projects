@@ -1,7 +1,7 @@
 # Common 555 Applications
 
-Due to the flexibility in its operating modes, there are literally thousands of unique 555-based circuits in
-use across industrial, commercial and hobbyist applications. Here are a few common use cases:
+Due to the flexibility of the 555's different operating modes, there are literally thousands of unique 555-based
+circuits in use across industrial, commercial and hobbyist applications. Here are a few common use cases:
 
 ### Square Wave Generator/Oscillator ("Astable" mode)
 
