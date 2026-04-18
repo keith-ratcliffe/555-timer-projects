@@ -7,7 +7,6 @@ Usage:
 The PDF is written to docs/Parts.pdf.
 """
 
-import io
 import re
 import sys
 from pathlib import Path
@@ -28,34 +27,11 @@ MARGIN_V = inch
 USABLE_W = PAGE_W - 2 * MARGIN_H
 USABLE_H = PAGE_H - 2 * MARGIN_V
 
-_IMG_MAX_PX = 1200
-_IMG_JPEG_Q = 85
 _IMG_SPACING = 8  # points between images
 
 
 def _parse_image_paths(md_text):
-    """Return a list of relative image paths found in the Markdown."""
     return re.findall(r'!\[.*?\]\((.+?)\)', md_text)
-
-
-def _prepare_image(rel_path):
-    """Load, EXIF-correct, downsample, and JPEG-encode a source image.
-
-    Returns (BytesIO buffer, px_width, px_height).
-    """
-    img_path = (REPO_ROOT / rel_path).resolve()
-    if not img_path.exists():
-        sys.exit(f"Error: image not found: {img_path}")
-    pil = ImageOps.exif_transpose(PILImage.open(img_path))
-    w, h = pil.size
-    if w > _IMG_MAX_PX:
-        h = int(h * _IMG_MAX_PX / w)
-        w = _IMG_MAX_PX
-        pil = pil.resize((w, h), PILImage.LANCZOS)
-    buf = io.BytesIO()
-    pil.convert('RGB').save(buf, format='JPEG', quality=_IMG_JPEG_Q, optimize=True)
-    buf.seek(0)
-    return buf, w, h
 
 
 def generate_pdf():
@@ -64,39 +40,32 @@ def generate_pdf():
     if not rel_paths:
         sys.exit("Error: no images found in PARTS.md")
 
-    n = len(rel_paths)
-    images = [_prepare_image(p) for p in rel_paths]
-
-    # Divide usable height evenly, leaving gaps between images.
-    total_spacing = _IMG_SPACING * (n - 1)
-    slot_h = (USABLE_H - total_spacing) / n
-
-    # For each image, compute draw dimensions that fit within (USABLE_W, slot_h).
-    draw_dims = []
-    for _, px_w, px_h in images:
-        draw_w = USABLE_W
-        draw_h = px_h * (draw_w / px_w)
-        if draw_h > slot_h:
-            draw_h = slot_h
-            draw_w = px_w * (draw_h / px_h)
-        draw_dims.append((draw_w, draw_h))
+    # Resolve paths and read native pixel dimensions.
+    images = []
+    for rel in rel_paths:
+        img_path = (REPO_ROOT / rel).resolve()
+        if not img_path.exists():
+            sys.exit(f"Error: image not found: {img_path}")
+        pil = ImageOps.exif_transpose(PILImage.open(img_path))
+        pw, ph = pil.size
+        # Scale down only if the image is wider than the usable area.
+        draw_w = float(pw)
+        draw_h = float(ph)
+        if draw_w > USABLE_W:
+            draw_h = draw_h * (USABLE_W / draw_w)
+            draw_w = USABLE_W
+        images.append((img_path, draw_w, draw_h))
 
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     c = canvas.Canvas(str(OUT_PATH), pagesize=letter)
 
-    # Draw from top to bottom. ReportLab canvas uses bottom-left origin.
-    y = PAGE_H - MARGIN_V  # start at top margin
-    for i, ((buf, px_w, px_h), (draw_w, draw_h)) in enumerate(zip(images, draw_dims)):
+    # Draw images from top to bottom. Canvas origin is bottom-left.
+    y = PAGE_H - MARGIN_V
+    for i, (img_path, draw_w, draw_h) in enumerate(images):
         y -= draw_h
-        c.drawImage(
-            ImageReader(buf),
-            x=MARGIN_H,
-            y=y,
-            width=draw_w,
-            height=draw_h,
-            preserveAspectRatio=True,
-        )
-        if i < n - 1:
+        c.drawImage(ImageReader(str(img_path)), x=MARGIN_H, y=y,
+                    width=draw_w, height=draw_h)
+        if i < len(images) - 1:
             y -= _IMG_SPACING
 
     c.showPage()
